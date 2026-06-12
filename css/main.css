@@ -746,6 +746,11 @@ img { max-width: 100%; height: auto; display: block; }
   height: clamp(1.14rem, 1.98vw, 1.67rem);
 }
 
+/* Urban Hive is the host venue — lead the strip and let it sit ~1.3x larger. */
+.logo-strip .logo-urbanhive {
+  height: clamp(1.95rem, 3.4vw, 2.9rem);
+}
+
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
 /* ------------------------------------------------------------
