@@ -110,8 +110,8 @@ img { max-width: 100%; height: auto; display: block; }
   inset: 0;
   pointer-events: none;
   background-image: url("../assets/halftone-rabbit.png");
-  background-size: 800px 560px;
-  opacity: 0.085;
+  background-size: 950px 670px;
+  opacity: 0.13;
   z-index: 0;
 }
 
