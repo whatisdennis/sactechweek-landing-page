@@ -810,6 +810,12 @@ img { max-width: 100%; height: auto; display: block; }
   filter: brightness(0) invert(1);
 }
 
+.partner-logo img.partner-logo--urbanhive {
+  /* host venue, leads the list: a tall stacked mark, so give it more height
+     to match the visual weight of the wider wordmarks. */
+  max-height: 4.5rem;
+}
+
 .partner-body .zone {
   display: block;
   font-size: 0.78rem;
