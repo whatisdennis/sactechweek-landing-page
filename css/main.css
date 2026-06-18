@@ -1034,6 +1034,339 @@ img { max-width: 100%; height: auto; display: block; }
   .poster::before { background-position: 160% 4%; opacity: 0.12; }
 }
 
+/* ============================================================
+   Members area — password gate + year-round rhythm calendar
+   ============================================================ */
+
+/* --- Password gate --- */
+.gate {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: clamp(5rem, 14vh, 9rem) var(--gutter) 9rem;
+}
+
+.gate-inner {
+  width: 100%;
+  max-width: 32rem;
+}
+
+.gate .zone { display: block; margin-bottom: 1.2rem; }
+
+.gate-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 0 0 1.2rem;
+  filter: url(#grit);
+}
+
+.gate-copy {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0 0 2rem;
+  max-width: 42ch;
+}
+
+.gate-form { margin: 0; }
+
+.gate-label {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 0.6rem;
+}
+
+.gate-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.gate-input {
+  flex: 1 1 14rem;
+  min-width: 0;
+  background: var(--void-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  padding: 1rem 1.1rem;
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.gate-input:focus {
+  outline: none;
+  border-color: var(--electric);
+  box-shadow: var(--glow-signal);
+}
+
+.gate-submit { flex: 0 0 auto; cursor: pointer; border: 0; }
+.gate-submit[disabled] { opacity: 0.6; cursor: progress; }
+
+.gate-error {
+  margin: 1rem 0 0;
+  color: var(--ember);
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.gate-foot {
+  margin: 2.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* --- Calendar header --- */
+.cal-head { padding: clamp(7rem, 18vh, 11rem) var(--gutter) 0; }
+.cal-head .zone { display: block; margin-bottom: 1.2rem; }
+
+.cal-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 0 0 1.4rem;
+  filter: url(#grit);
+}
+
+.cal-intro {
+  max-width: var(--measure);
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* --- Rhythm section --- */
+.rhythm-section { padding: clamp(3rem, 8vh, 5rem) var(--gutter) 0; }
+
+.rhythm-head { margin-bottom: 1.5rem; }
+.rhythm-head .zone { display: block; margin-bottom: 0.6rem; }
+
+.rhythm-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Matrix (desktop): label column + 7 day columns */
+.rhythm-grid {
+  display: grid;
+  grid-template-columns: 3rem repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.rhythm-corner { background: transparent; }
+
+.rhythm-dayhead {
+  font-family: var(--font-pixel);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ember);
+  padding: 0.4rem 0.2rem;
+  text-align: center;
+}
+
+.rhythm-weeklabel {
+  font-family: var(--font-pixel);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rhythm-cell {
+  background: var(--void-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  min-height: 88px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rhythm-cell.is-empty {
+  background: rgba(18, 18, 33, 0.4);
+  border-style: dashed;
+}
+
+/* Event card */
+.ev-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--void-3), var(--void-2));
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  padding: 0.55rem 0.6rem;
+  flex: 1 1 auto;
+  transition: transform var(--fast) var(--ease), border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.ev-card:hover,
+.ev-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--electric);
+  box-shadow: var(--glow-signal);
+}
+
+.ev-card-ord {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--lavender);
+}
+
+.ev-card-name { font-weight: 700; font-size: 0.92rem; line-height: 1.2; }
+
+.ev-card-venue {
+  font-size: 0.74rem;
+  color: var(--lavender);
+  letter-spacing: 0.01em;
+}
+
+/* Stacked (mobile): grouped by day */
+.rhythm-stack { display: grid; gap: 1.5rem; }
+
+.rhythm-dayname {
+  font-family: var(--font-pixel);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.rhythm-daylist { display: grid; gap: 0.6rem; }
+
+/* --- Annual section --- */
+.annual-section { padding: clamp(3.5rem, 9vh, 6rem) var(--gutter) 0; }
+
+.annual-head { margin-bottom: 1.5rem; }
+.annual-head .zone { display: block; margin-bottom: 0.6rem; }
+
+.annual-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.annual-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.8rem;
+}
+
+.annual-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+  cursor: pointer;
+  background: var(--void-2);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--electric);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  padding: 1.1rem 1.2rem;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.annual-card:hover,
+.annual-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-halo);
+}
+
+.annual-date {
+  font-family: var(--font-pixel);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--lavender);
+}
+
+.annual-name { font-family: var(--font-headline); font-weight: 700; font-size: 1.2rem; }
+.annual-venue { font-size: 0.85rem; color: var(--muted); }
+
+/* --- Detail dialog --- */
+.ev-dialog {
+  width: min(92vw, 30rem);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--void-2);
+  color: var(--text);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  box-shadow: var(--glow-halo);
+}
+
+.ev-dialog::backdrop { background: rgba(11, 11, 20, 0.7); backdrop-filter: blur(3px); }
+.ev-dialog .zone { display: block; margin-bottom: 0.8rem; }
+
+.ev-dialog-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.ev-dialog-close:hover { color: var(--text); }
+
+.ev-dialog-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+}
+
+.ev-dialog-meta { color: var(--lavender); font-family: var(--font-pixel); font-size: 0.85rem; margin: 0 0 1.2rem; }
+
+.ev-facts { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: 0.5rem; }
+.ev-facts li { display: flex; gap: 1rem; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+.ev-fact-label { flex: 0 0 4.5rem; font-family: var(--font-pixel); font-size: 0.78rem; text-transform: uppercase; color: var(--muted); }
+.ev-fact-value { color: var(--text); }
+
+.ev-dialog-blurb { color: var(--muted); margin: 0 0 1.4rem; }
+.ev-dialog-cta { cursor: pointer; }
+
+/* --- Members responsive --- */
+@media (max-width: 720px) {
+  .annual-list { grid-template-columns: 1fr; }
+}
+
 /* ------------------------------------------------------------
    Reduced motion — instant states, no choreography
    ------------------------------------------------------------ */

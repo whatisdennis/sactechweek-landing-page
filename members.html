@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members — Sacramento Tech Week 2026</title>
+  <meta name="description" content="Private consortium area.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0B0B14">
+
+  <!-- Icons -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- print-grit filter for display type -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <filter id="grit" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ PASSWORD GATE ============ -->
+  <section class="gate texture-field" id="gate">
+    <div class="gate-inner">
+      <span class="zone">&gt; STW / Consortium_Access</span>
+      <h1 class="gate-title">Members only.</h1>
+      <p class="gate-copy">
+        The year-round calendar is for consortium members and invited
+        partners. Enter the shared access password to continue.
+      </p>
+      <form class="gate-form" id="gate-form" autocomplete="off">
+        <label class="gate-label" for="gate-password">Access password</label>
+        <div class="gate-row">
+          <input
+            class="gate-input"
+            id="gate-password"
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            required
+            autofocus
+          >
+          <button class="btn-white gate-submit" type="submit">Unlock</button>
+        </div>
+        <p class="gate-error" id="gate-error" role="alert" hidden></p>
+      </form>
+      <p class="gate-foot">
+        Need access? Email
+        <a class="apply-link" href="mailto:hello@sactechweek.org?subject=Consortium%20calendar%20access">hello@sactechweek.org</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CALENDAR (rendered after unlock) ============ -->
+  <main id="calendar-root" hidden></main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-mark">
+        <img src="assets/stw-mark-white.png" alt="stw." width="1550" height="736">
+      </div>
+      <div class="footer-meta">
+        <span>©2026 Sac Tech Week</span>
+        <span>October 19 – 24 / Sacramento CA</span>
+        <span class="status">System ready / Signal stable</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BOTTOM NAV ============ -->
+  <nav class="bottom-nav" aria-label="Primary">
+    <div class="bottom-nav-inner">
+      <a class="brand-mark" href="index.html">STW_</a>
+      <div class="nav-links">
+        <a href="index.html#program">Program</a>
+        <a href="consortium.html">Consortium</a>
+      </div>
+      <a class="connect-btn" href="participate.html">Apply to Participate</a>
+    </div>
+  </nav>
+
+  <script src="js/members-data.js"></script>
+  <script type="module" src="js/members.js"></script>
+</body>
+</html>

@@ -1,2 +1,6 @@
 .DS_Store
 *.log
+
+# Members area: plaintext calendar source is private. Only the encrypted
+# output (js/members-data.js) is committed/published.
+members-src/
