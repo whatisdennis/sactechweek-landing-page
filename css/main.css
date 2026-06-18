@@ -1109,7 +1109,8 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--glow-signal);
 }
 
-.gate-submit { flex: 0 0 auto; cursor: pointer; border: 0; }
+/* fixed min-width so the "Unlocking…" label swap never resizes the button */
+.gate-submit { flex: 0 0 auto; cursor: pointer; border: 0; min-width: 12.5rem; text-align: center; }
 .gate-submit[disabled] { opacity: 0.6; cursor: progress; }
 
 .gate-error {
@@ -1362,9 +1363,70 @@ img { max-width: 100%; height: auto; display: block; }
 .ev-dialog-blurb { color: var(--muted); margin: 0 0 1.4rem; }
 .ev-dialog-cta { cursor: pointer; }
 
+/* --- Toast notifications --- */
+.toast-region {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: min(92vw, 24rem);
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--void-2);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--electric);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  box-shadow: var(--glow-halo);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 320ms var(--ease), opacity 320ms var(--ease);
+  pointer-events: auto;
+}
+
+.toast.is-in { transform: translateX(0); opacity: 1; }
+.toast--error { border-left-color: var(--ember); }
+
+.toast-icon {
+  flex: 0 0 1.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ink-on-purple);
+  background: var(--lavender);
+}
+
+.toast--error .toast-icon { background: var(--ember); color: var(--white); }
+.toast-msg { line-height: 1.3; }
+
 /* --- Members responsive --- */
 @media (max-width: 720px) {
   .annual-list { grid-template-columns: 1fr; }
+
+  .toast-region {
+    top: auto;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+  .toast { transform: translateY(140%); }
+  .toast.is-in { transform: translateY(0); }
 }
 
 /* ------------------------------------------------------------
@@ -1385,4 +1447,6 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links a {
     transition: none;
   }
+
+  .toast { transition: opacity 200ms linear; transform: none; }
 }

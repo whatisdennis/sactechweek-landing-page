@@ -20,7 +20,6 @@ const MOBILE_MQ = window.matchMedia("(max-width: 720px)");
 const gate = document.getElementById("gate");
 const form = document.getElementById("gate-form");
 const input = document.getElementById("gate-password");
-const errorEl = document.getElementById("gate-error");
 const root = document.getElementById("calendar-root");
 
 // --- crypto ---------------------------------------------------------
@@ -61,6 +60,36 @@ const el = (tag, cls, text) => {
   if (text != null) n.textContent = text;
   return n;
 };
+
+// --- toast notifications --------------------------------------------
+function toast(message, type = "success") {
+  let region = document.getElementById("toast-region");
+  if (!region) {
+    region = el("div", "toast-region");
+    region.id = "toast-region";
+    document.body.appendChild(region);
+  }
+  const t = el("div", `toast toast--${type}`);
+  t.setAttribute("role", type === "error" ? "alert" : "status");
+  t.append(el("span", "toast-icon", type === "error" ? "!" : "✓"), el("span", "toast-msg", message));
+  region.appendChild(t);
+  requestAnimationFrame(() => t.classList.add("is-in"));
+  setTimeout(() => {
+    t.classList.remove("is-in");
+    t.addEventListener("transitionend", () => t.remove(), { once: true });
+    setTimeout(() => t.remove(), 500); // fallback if no transition fires
+  }, 3600);
+}
+
+function scrollToCalendar() {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  requestAnimationFrame(() => {
+    (document.querySelector(".rhythm-section") || root).scrollIntoView({
+      behavior: reduced ? "auto" : "smooth",
+      block: "start"
+    });
+  });
+}
 
 function cadenceLine(ev) {
   if (ev.dateLabel) return `${ev.dateLabel} · Annual`;
@@ -229,17 +258,11 @@ function unlock(jsonString, { cache } = {}) {
 }
 
 // --- gate -----------------------------------------------------------
-function showError(msg) {
-  errorEl.textContent = msg;
-  errorEl.hidden = false;
-}
-
 form?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  errorEl.hidden = true;
   const payload = window.__STW_MEMBERS__;
   if (!payload) {
-    showError("Calendar data failed to load. Refresh and try again.");
+    toast("Calendar failed to load. Refresh and try again.", "error");
     return;
   }
   const btn = form.querySelector("button[type=submit]");
@@ -249,8 +272,10 @@ form?.addEventListener("submit", async (e) => {
   try {
     const json = await decrypt(input.value, payload);
     unlock(json, { cache: true });
+    toast("Access granted — welcome in.", "success");
+    scrollToCalendar();
   } catch {
-    showError("That password didn't work. Try again.");
+    toast("That password didn't work. Try again.", "error");
     input.select();
   } finally {
     btn.disabled = false;
@@ -258,7 +283,7 @@ form?.addEventListener("submit", async (e) => {
   }
 });
 
-// Auto-unlock within the same tab session if already decrypted.
+// Auto-unlock within the same tab session if already decrypted (silent).
 const cached = sessionStorage.getItem(CACHE_KEY);
 if (cached) {
   try {
