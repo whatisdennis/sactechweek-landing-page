@@ -3,10 +3,5 @@
   "buildCommand": null,
   "installCommand": null,
   "outputDirectory": ".",
-  "cleanUrls": true,
-  "functions": {
-    "api/newsletter-signup.js": {
-      "runtime": "@vercel/node"
-    }
-  }
+  "cleanUrls": true
 }
