@@ -45,3 +45,83 @@ if (scene && logo && !REDUCED) {
     logo.style.transform = "";
   });
 }
+
+// --- Newsletter signup ------------------------------------------------
+function showToast(message, { error = false } = {}) {
+  let region = document.querySelector(".toast-region");
+  if (!region) {
+    region = document.createElement("div");
+    region.className = "toast-region";
+    region.setAttribute("aria-live", "polite");
+    region.setAttribute("aria-atomic", "true");
+    document.body.append(region);
+  }
+
+  const toast = document.createElement("div");
+  toast.className = `toast${error ? " toast--error" : ""}`;
+  toast.setAttribute("role", error ? "alert" : "status");
+
+  const icon = document.createElement("span");
+  icon.className = "toast-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = error ? "!" : "✓";
+
+  const text = document.createElement("span");
+  text.className = "toast-msg";
+  text.textContent = message;
+
+  toast.append(icon, text);
+  region.append(toast);
+
+  requestAnimationFrame(() => toast.classList.add("is-in"));
+  window.setTimeout(() => {
+    toast.classList.remove("is-in");
+    window.setTimeout(() => toast.remove(), 320);
+  }, 4000);
+}
+
+const newsletterForm = document.getElementById("newsletter-form");
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const emailInput = newsletterForm.elements.email;
+    const honeypotInput = newsletterForm.elements.website;
+    const submitButton = newsletterForm.querySelector('button[type="submit"]');
+    const email = emailInput.value.trim();
+    const website = honeypotInput.value;
+
+    if (website.trim()) return;
+
+    if (!email || !emailInput.validity.valid) {
+      showToast("Enter a valid email address.", { error: true });
+      emailInput.focus();
+      return;
+    }
+
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Signing up...";
+
+    try {
+      const response = await fetch("/newsletter-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website }),
+      });
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.error || "We couldn't sign you up. Please try again.");
+      }
+
+      newsletterForm.reset();
+      showToast(payload.message || "You're in. Watch your inbox.");
+    } catch (error) {
+      showToast(error.message || "We couldn't sign you up. Please try again.", { error: true });
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}

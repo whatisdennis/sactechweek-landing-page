@@ -52,37 +52,14 @@
     <span class="zone">&gt; STW / Apply_2026</span>
     <h1 class="reveal">Put your event<br>on the map.</h1>
     <p class="reveal">
-      Sac Tech Week 2026 runs October 19 – 24, citywide. This application is
-      for technology companies, research labs, civic organizations, and
-      creative collectives working in AI, automation, civic innovation,
-      GovTech, MedTech, HealthTech, and robotics that want their event,
-      exhibition, or project in the official STW program and guide.
+      Sac Tech Week 2026 runs October 19 – 24, citywide. Choose from five ways
+      to participate: host an event, show work through projection mapping or
+      the AI Film Festival, step up as a summit speaker, or bring your company
+      to the Startup Marketplace.
     </p>
   </header>
 
   <main>
-    <!-- ============ GROUND RULES ============ -->
-    <section class="apply texture-field" aria-labelledby="rules-title">
-      <h2 class="apply-title reveal" id="rules-title">How it works</h2>
-      <ul class="voice-list apply-rules reveal">
-        <li>
-          <span class="zone zone--lavender">01 / When</span>
-          <p>Events, pitch competitions, and lectures must take place during the week — October 19 – 24, 2026.</p>
-        </li>
-        <li>
-          <span class="zone zone--lavender">02 / Open</span>
-          <p>Every STW event is accessible to the general public — free, reserved, or ticketed. STW doesn't run individual event registration.</p>
-        </li>
-        <li>
-          <span class="zone zone--lavender">03 / Yours</span>
-          <p>Participants produce their own exhibition, project, or event. You build it; the week amplifies it.</p>
-        </li>
-        <li>
-          <span class="zone zone--lavender">04 / Press</span>
-          <p>Images you submit may be used to promote the week.</p>
-        </li>
-      </ul>
-    </section>
 
     <!-- ============ WHAT YOU GET ============ -->
     <section class="apply apply--alt" aria-labelledby="receive-title">
@@ -110,20 +87,55 @@
         </li>
       </ul>
       <p class="apply-note reveal">
-        Fees support the administration and marketing of the week. Need
-        financial assistance to apply? Email
+        Have a question? Reach out to
         <a class="apply-link" href="mailto:hello@sactechweek.org">hello@sactechweek.org</a>.
       </p>
     </section>
 
-    <!-- ============ APPLY CTA ============ -->
-    <section class="join" id="apply" aria-labelledby="apply-title">
-      <h2 id="apply-title" class="reveal">Ready? Follow the rabbit.</h2>
-      <p class="reveal">
-        Tell us what you want to bring to the week. Applications go through
-        the producer inquiry form — it takes a few minutes.
-      </p>
-      <a class="btn-white reveal" href="https://forms.gle/1ZNzWC138Qcjy7hQ7" target="_blank" rel="noopener">Producer inquiry form ↗</a>
+    <!-- ============ PARTICIPATION LANES ============ -->
+    <section class="join join--lanes" id="apply" aria-labelledby="lanes-title">
+      <div class="join-intro reveal">
+        <span class="zone zone--light">&gt; STW / Choose_your_lane</span>
+        <h2 id="lanes-title">Choose your lane.</h2>
+        <p>Bring the part of Sac Tech Week that only you can make. Pick the path that fits your work, then follow the signal.</p>
+      </div>
+
+      <div class="lane-grid" aria-label="Participation options">
+        <article class="lane-card reveal">
+          <span class="zone zone--light">01 / Host</span>
+          <h3 class="apply-title">Host an Event</h3>
+          <p>Build a gathering, workshop, talk, or live moment for the official week. You make it happen; STW puts it on the map.</p>
+          <a class="btn-white" href="https://forms.gle/QdtCGPudH7ByVttSA" target="_blank" rel="noopener">Host an event ↗</a>
+        </article>
+
+        <article class="lane-card reveal">
+          <span class="zone zone--light">02 / Projection</span>
+          <h3 class="apply-title">Projection Mapping Artist Signup</h3>
+          <p>Turn Sacramento into a canvas. Submit your visual work for a city-scale projection mapping experience.</p>
+          <a class="btn-white" href="https://forms.gle/9AtzX1NG3JbGAQUb9" target="_blank" rel="noopener">Artist signup ↗</a>
+        </article>
+
+        <article class="lane-card reveal">
+          <span class="zone zone--light">03 / Film</span>
+          <h3 class="apply-title">AI Film Festival Sign Up</h3>
+          <p>Have a story made with machines? Send your film into the festival and let the city see what is next.</p>
+          <a class="btn-white" href="https://forms.gle/Fywgcf47bksqGTBZ6" target="_blank" rel="noopener">Submit your film ↗</a>
+        </article>
+
+        <article class="lane-card lane-card--soon reveal">
+          <span class="zone zone--light">04 / Summit</span>
+          <h3 class="apply-title">Summit Speaker Sign Up</h3>
+          <p>Have a sharp perspective, practical lesson, or hard-won signal to share from the stage? Speaker applications are opening soon.</p>
+          <span class="btn-disabled" aria-disabled="true">Coming soon</span>
+        </article>
+
+        <article class="lane-card lane-card--soon reveal">
+          <span class="zone zone--light">05 / Marketplace</span>
+          <h3 class="apply-title">Startup Marketplace Sign Up</h3>
+          <p>Put your startup in front of the people building Sacramento’s next chapter. Marketplace registration is opening soon.</p>
+          <span class="btn-disabled" aria-disabled="true">Coming soon</span>
+        </article>
+      </div>
     </section>
   </main>
 
@@ -133,6 +145,14 @@
       <div class="footer-mark">
         <img src="assets/stw-mark-white.png" alt="stw." width="1550" height="736">
       </div>
+      <form id="newsletter-form" class="footer-newsletter" action="/newsletter-signup" method="post">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label class="footer-newsletter-title" for="newsletter-email">STW Newsletter</label>
+        <div class="footer-newsletter-fields">
+          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
+          <button type="submit">Sign up</button>
+        </div>
+      </form>
       <div class="footer-meta">
         <span>©2026 Sac Tech Week</span>
         <span>October 19 – 24 / Sacramento CA</span>
