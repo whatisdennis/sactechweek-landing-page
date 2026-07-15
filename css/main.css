@@ -538,6 +538,119 @@ img { max-width: 100%; height: auto; display: block; }
   margin: calc(-1 * clamp(1rem, 3vh, 2.5rem)) 0 clamp(2.4rem, 6vh, 4rem);
 }
 
+/* --- Week calendar --- */
+.week-cal { margin: 0 0 clamp(3rem, 7vh, 5rem); }
+
+.week-cal-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.core-event-btn {
+  display: inline-block;
+  width: 17rem;
+  margin-top: 1.2rem;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-pixel);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--signal);
+  background: var(--white);
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.core-event-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-halo);
+}
+
+.core-event-btn[aria-disabled="true"] {
+  color: rgba(244, 245, 251, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(199, 168, 255, 0.2);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.week-cal-foot .core-event-btn {
+  padding: 0.9rem 2rem;
+  font-size: 0.82rem;
+}
+
+.poster-divider {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin: clamp(2rem, 5vh, 3.5rem) 0 0;
+}
+
+.week-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.week-cal-day { min-width: 0; padding: 1.4rem 1rem 1.5rem; }
+.week-cal-day + .week-cal-day { border-left: 1px solid rgba(0, 0, 0, 0.15); }
+
+.week-cal-day-title {
+  margin: 0 0 1.2rem;
+  color: var(--ink-on-purple);
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.week-cal-day-title span { color: var(--white); }
+.week-cal-events { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+
+.week-cal-event {
+  position: relative;
+  padding: 0.55rem 1.6rem 0.6rem 1.1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--fast) var(--ease);
+}
+
+.week-cal-event::after {
+  content: "↗";
+  position: absolute;
+  top: 0.55rem;
+  right: 0.4rem;
+  font-family: var(--font-headline);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  transition: color var(--fast) var(--ease);
+}
+
+.week-cal-event:hover::after { color: var(--white); }
+
+.week-cal-event::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 0.4rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--ink-on-purple);
+}
+
+.week-cal-event:hover,
+.week-cal-event:focus-visible { background: rgba(0, 0, 0, 0.1); outline: none; }
+.week-cal-event:focus-visible { box-shadow: inset 0 0 0 2px var(--white); }
+.week-cal-event-name { display: block; color: var(--white); font-weight: 700; font-size: 0.95rem; line-height: 1.25; }
+.week-cal-event-org { display: block; margin-top: 0.25rem; color: rgba(255, 255, 255, 0.76); font-family: var(--font-pixel); font-size: 0.72rem; line-height: 1.25; letter-spacing: 0.05em; text-transform: uppercase; }
+
 .event-list {
   list-style: none;
   margin: 0;
@@ -1113,7 +1226,6 @@ img { max-width: 100%; height: auto; display: block; }
    they approach the viewport. Estimated heights keep the
    scrollbar stable; anchors still resolve.
    ------------------------------------------------------------ */
-.poster,
 .city,
 .consortium-teaser,
 .partner-list,
@@ -1141,6 +1253,12 @@ img { max-width: 100%; height: auto; display: block; }
 /* ------------------------------------------------------------
    Responsive
    ------------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .week-cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .week-cal-day:nth-child(4) { border-left: 0; }
+  .week-cal-day:nth-child(n + 4) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
+}
+
 @media (max-width: 900px) {
   .lane-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
@@ -1199,6 +1317,10 @@ img { max-width: 100%; height: auto; display: block; }
   .hero-inner { padding-bottom: 12rem; }
 
   .poster::before { background-position: 160% 4%; opacity: 0.12; }
+
+  .week-cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .week-cal-day:nth-child(4) { border-left: 0; }
+  .week-cal-day:nth-child(n + 4) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
 }
 
 /* ============================================================
@@ -1487,16 +1609,16 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- Detail dialog --- */
 .ev-dialog {
-  width: min(92vw, 30rem);
+  width: min(94vw, 38rem);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-md);
   background: var(--void-2);
   color: var(--text);
-  padding: clamp(1.6rem, 4vw, 2.4rem);
+  padding: clamp(1.8rem, 5vw, 2.8rem);
   box-shadow: var(--glow-halo);
 }
 
-.ev-dialog::backdrop { background: rgba(11, 11, 20, 0.7); backdrop-filter: blur(3px); }
+.ev-dialog::backdrop { background: rgba(11, 11, 20, 0.7); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
 .ev-dialog .zone { display: block; margin-bottom: 0.8rem; }
 
 .ev-dialog-close {
@@ -1529,6 +1651,41 @@ img { max-width: 100%; height: auto; display: block; }
 
 .ev-dialog-blurb { color: var(--muted); margin: 0 0 1.4rem; }
 .ev-dialog-cta { cursor: pointer; }
+
+.ev-dialog-image {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  min-height: 8rem;
+  margin: 0 0 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--void-2);
+  color: var(--muted);
+  font-family: var(--font-pixel);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.ev-dialog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-disabled {
+  display: inline-block;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-family: var(--font-pixel);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
 /* --- Toast notifications --- */
 .toast-region {
@@ -1587,15 +1744,27 @@ img { max-width: 100%; height: auto; display: block; }
 
   .lane-card { min-height: 0; }
 
+  .week-cal-grid { grid-template-columns: 1fr; }
+  .week-cal-day:nth-child(n) { border-top: 1px solid rgba(0, 0, 0, 0.15); border-left: 0; }
+  .week-cal-day:nth-child(1) { border-top: 0; }
+
   .footer-newsletter-fields { flex-direction: column; }
 
   .footer-newsletter button { width: 100%; }
+
+  .core-event-btn { width: 100%; }
 
   .lane-card .zone { margin-bottom: 1.75rem; }
 
   .lane-card p { margin-bottom: 2rem; }
 
   .annual-list { grid-template-columns: 1fr; }
+
+  .week-cal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .week-cal-day:nth-child(n) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  .week-cal-day:nth-child(1),
+  .week-cal-day:nth-child(2) { border-top: 0; }
+  .week-cal-day:nth-child(odd) { border-left: 0; }
 
   .toast-region {
     top: auto;
