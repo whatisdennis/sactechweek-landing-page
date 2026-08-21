@@ -80,8 +80,7 @@ function showToast(message, { error = false } = {}) {
   }, 4000);
 }
 
-const newsletterForm = document.getElementById("newsletter-form");
-if (newsletterForm) {
+document.querySelectorAll("[data-newsletter-form]").forEach((newsletterForm) => {
   newsletterForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -124,11 +123,11 @@ if (newsletterForm) {
       submitButton.textContent = originalButtonText;
     }
   });
-}
+});
 
 // --- Home-page week calendar -----------------------------------------
 const weekEvents = {
-  "mon-kickoff": ["STW Kick Off @ G1", "Monday, October 19", "PWRD BY VERIZON", "The official opening of Sac Tech Week at Golden 1 Center, powered by Verizon."],
+  "mon-kickoff": ["State of Innovation Kickoff Breakfast", "Monday, October 19", "SAC TECH WEEK", "The official opening of Sac Tech Week at Golden 1 Center."],
   "mon-women-in-tech": ["Women in Tech: An Evening Discussion", "Monday, October 19", "TIFFANI M. & SOPHIA K.", "An evening conversation with women leaders shaping Sacramento's technology community."],
   "mon-suno-101": ["Suno 101: AI Music Production", "Monday, October 19", "DPT OF SOUND", "Explore the creative possibilities of AI-assisted music production in this hands-on introduction to Suno."],
   "mon-ecosystem-dinner": ["Ecosystem Dinner", "Monday, October 19", "SAC TECH CONSORTIUM", "A welcoming dinner for the people and organizations building Sacramento's innovation ecosystem."],
@@ -148,7 +147,7 @@ const weekEvents = {
   "fri-coffee-claude": ["Coffee & Claude", "Friday, October 23", "SAC TECH WEEK", "Bring your questions for a casual coffee conversation about working with Claude, Anthropic AI assistant."],
   "fri-amazon-pitch": ["Amazon Pitch Competition", "Friday, October 23", "AMAZON + SF", "Watch ambitious founders present their ideas and compete for an opportunity to move their ventures forward."],
   "fri-make-made": ["Make & Made", "Friday, October 23", "MADE STUDIOS & MAKER USA", "A celebration of making, design, and the people turning creative ideas into tangible work."],
-  "sat-innovation-summit": ["Innovation Summit", "Saturday, October 24", "SAC TECH CONSORTIUM", "A full-day gathering of workshops, conversations, demonstrations, and big ideas for the Sacramento region."],
+  "sat-tandem-summit": ["STW Tandem Summit", "Saturday, October 24", "SAC TECH CONSORTIUM", "A full-day gathering of workshops, conversations, demonstrations, and big ideas for the Sacramento region."],
   "sat-byob": ["BYOB", "Saturday, October 24", "BRING YOUR OWN BEAMER", "The final night of projection art, built for wandering, watching, and seeing the city differently."],
   "sat-sustainability": ["Sustainability Event", "Saturday, October 24", "SAC TECH WEEK", "A community event focused on sustainable ideas, technologies, and actions for the Sacramento region."],
 };
@@ -159,12 +158,13 @@ Object.entries(weekEvents).forEach(([id, [title, day, org, description]]) => {
     "thur-byob-sofar": "assets/event-byob.webp",
     "fri-byob": "assets/event-byob.webp",
     "sat-byob": "assets/event-byob.webp",
-    "sat-innovation-summit": "assets/event-marketplace.webp",
+    "sat-tandem-summit": "assets/event-marketplace.webp",
   };
   weekEvents[id] = { title, day, org, description, image: images[id] || null };
 });
 
 const eventModal = document.getElementById("event-modal");
+const calendarModalEnabled = document.querySelector(".week-cal")?.dataset.calendarModalEnabled === "true";
 if (eventModal) {
   const modalTitle = document.getElementById("modal-title");
   const modalMeta = document.getElementById("modal-meta");
@@ -174,6 +174,7 @@ if (eventModal) {
   const closeButton = eventModal.querySelector(".ev-dialog-close");
 
   const openEventModal = (eventId) => {
+    if (!calendarModalEnabled) return;
     const event = weekEvents[eventId];
     if (!event) return;
     modalTitle.textContent = event.title;
@@ -189,8 +190,13 @@ if (eventModal) {
   };
 
   document.querySelectorAll(".week-cal-event").forEach((item) => {
+    if (calendarModalEnabled && item.dataset.eventId) {
+      item.setAttribute("role", "button");
+      item.tabIndex = 0;
+    }
     item.addEventListener("click", () => openEventModal(item.dataset.eventId));
     item.addEventListener("keydown", (event) => {
+      if (!calendarModalEnabled) return;
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         openEventModal(item.dataset.eventId);

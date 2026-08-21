@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sacramento Tech Week 2026 — October 19–24 | Citywide Innovation Week</title>
-  <meta name="description" content="Sacramento Tech Week (STW) is a citywide, decentralized week of innovation — startup showcases, AI film, projection art, and the Capitol Region Innovation Summit. October 19–24, 2026. Follow the white rabbit.">
+  <meta name="description" content="Sacramento Tech Week — 20+ events across the city, October 19–24, 2026. Four signature events, the STW Tandem Summit, and satellite events in every corner of Sacramento. Free and open. Follow the white rabbit.">
   <link rel="canonical" href="https://www.sactechweek.org/">
   <meta name="theme-color" content="#0B0B14">
 
@@ -43,7 +43,7 @@
         "@type": "Festival",
         "name": "Sacramento Tech Week 2026",
         "alternateName": "STW 2026",
-        "description": "A citywide, decentralized week of innovation in Sacramento: startup showcases, AI film, projection art, and the Capitol Region Innovation Summit, with satellite events across the city.",
+        "description": "A citywide, decentralized week of innovation in Sacramento: startup showcases, AI film, projection art, and the STW Tandem Summit, with satellite events across the city.",
         "startDate": "2026-10-19",
         "endDate": "2026-10-24",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -103,11 +103,42 @@
     <p class="hero-corner hero-corner--tl">STW_</p>
     <p class="hero-corner hero-corner--tr">38.5816° N<br>121.4944° W</p>
 
-    <div class="hero-inner">
-      <div class="logo-tilt-scene">
-        <div class="logo-tilt" id="logoTilt">
-          <img src="assets/stw-stack-white.png" alt="STW — Sacramento Tech Week. A pixelated rabbit leaps over the stw. lettermark." width="500" height="500">
+    <section class="hero-sponsors" aria-label="Supported by">
+      <p class="hero-sponsors-label">Supported by</p>
+      <div class="hero-sponsors-viewport">
+        <div class="hero-sponsors-track">
+          <ul class="hero-sponsors-list">
+            <li class="hero-sponsor hero-sponsor--bosch"><img src="assets/sponsor-bosch.svg" alt="Bosch"></li>
+            <li class="hero-sponsor"><img src="assets/sponsor-smud.svg" alt="SMUD"></li>
+            <li class="hero-sponsor hero-sponsor--urbanhive"><img src="assets/urban-hive-white.svg" alt="Urban Hive"></li>
+            <li class="hero-sponsor hero-sponsor--aws"><img src="assets/sponsor-aws.svg" alt="AWS"></li>
+          </ul>
+          <ul class="hero-sponsors-list" aria-hidden="true">
+            <li class="hero-sponsor hero-sponsor--bosch"><img src="assets/sponsor-bosch.svg" alt=""></li>
+            <li class="hero-sponsor"><img src="assets/sponsor-smud.svg" alt=""></li>
+            <li class="hero-sponsor hero-sponsor--urbanhive"><img src="assets/urban-hive-white.svg" alt=""></li>
+            <li class="hero-sponsor hero-sponsor--aws"><img src="assets/sponsor-aws.svg" alt=""></li>
+          </ul>
         </div>
+      </div>
+    </section>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="logo-tilt-scene">
+          <div class="logo-tilt" id="logoTilt">
+            <img src="assets/stw-stack-white.png" alt="STW — Sacramento Tech Week. A pixelated rabbit leaps over the stw. lettermark." width="500" height="500">
+          </div>
+        </div>
+        <form class="hero-newsletter" data-newsletter-form action="/newsletter-signup" method="post">
+          <p>Be first to know when events open</p>
+          <label class="visually-hidden" for="hero-newsletter-email">Email address</label>
+          <div class="hero-newsletter-fields">
+            <input id="hero-newsletter-email" name="email" type="email" autocomplete="email" required>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+            <button type="submit">Sign up</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -118,8 +149,9 @@
     <!-- ============ MANIFESTO ============ -->
     <section class="manifesto texture-field" aria-labelledby="premise">
       <h1 class="manifesto-statement reveal" id="premise">
-        Not a conference. A <em>city-scale</em> technology ecosystem.
+        For six days, Sacramento runs on tech. You’re invited to all of it.
       </h1>
+      <p class="manifesto-stat reveal">20+ events. 10+ venues. One city.</p>
 
       <div class="manifesto-grid">
         <div class="manifesto-copy reveal">
@@ -171,102 +203,147 @@
       </div>
     </div>
 
-    <!-- ============ THE PROGRAM (poster) ============ -->
-    <section class="poster" id="program" aria-labelledby="program-title">
+    <!-- ============ THE SCHEDULE ============ -->
+    <section class="poster" id="schedule" aria-labelledby="schedule-title">
       <div class="poster-head">
-        <p class="poster-kicker">[ The Program / STW 2026 ]</p>
-        <p class="poster-kicker">★ Five signature events ★</p>
+        <p class="poster-kicker">[ 03 / The Schedule ]</p>
+        <p class="poster-kicker">★ 20+ citywide events ★</p>
       </div>
 
-      <h2 class="poster-title reveal" id="program-title">
-        One week.<br>One city. <span class="ding">★</span><br>Infinite signal.
+      <h2 class="poster-title reveal" id="schedule-title">
+        The Week.<br>Day by day. <span class="ding">★</span>
       </h2>
 
       <p class="poster-lede reveal">
-        Five signature events anchor the week, hosted by STW. Around them,
-        consortium partners run satellite events across the city — same week,
-        every corner of Sacramento. Explore the week below.
+        20+ events across Sacramento. One week, every corner of the city.
       </p>
 
       <p class="poster-kicker reveal" style="margin-bottom: 1.5rem;">[ City Wide Partner Events ]</p>
-      <p class="poster-kicker reveal" style="margin-bottom: 0.5rem; opacity: 0.7;">Tap an event for details</p>
-      <div class="week-cal reveal" aria-label="Sac Tech Week schedule">
+      <p class="poster-kicker reveal" style="margin-bottom: 0.5rem; opacity: 0.7;">Full calendar drops September.</p>
+      <div class="week-cal reveal" aria-label="Sac Tech Week schedule" data-calendar-modal-enabled="false">
         <div class="week-cal-grid">
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Mon <span>10/19</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="mon-kickoff" role="button" tabindex="0"><span class="week-cal-event-name">STW Kick Off @ G1</span><span class="week-cal-event-org">PWRD BY VERIZON</span></li>
-              <li class="week-cal-event" data-event-id="mon-women-in-tech" role="button" tabindex="0"><span class="week-cal-event-name">Women in Tech: An Evening Discussion</span><span class="week-cal-event-org">TIFFANI M. &amp; SOPHIA K.</span></li>
-              <li class="week-cal-event" data-event-id="mon-suno-101" role="button" tabindex="0"><span class="week-cal-event-name">Suno 101: AI Music Production</span><span class="week-cal-event-org">DPT OF SOUND</span></li>
-              <li class="week-cal-event" data-event-id="mon-ecosystem-dinner" role="button" tabindex="0"><span class="week-cal-event-name">Ecosystem Dinner</span><span class="week-cal-event-org">SAC TECH CONSORTIUM</span></li>
+              <li class="week-cal-event" data-event-id="mon-kickoff"><span class="week-cal-event-name">State of Innovation Kickoff Breakfast</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
+              <li class="week-cal-event" data-event-id="mon-women-in-tech" hidden><span class="week-cal-event-name">Women in Tech: An Evening Discussion</span><span class="week-cal-event-org">TIFFANI M. &amp; SOPHIA K.</span></li>
+              <li class="week-cal-event" data-event-id="mon-suno-101" hidden><span class="week-cal-event-name">Suno 101: AI Music Production</span><span class="week-cal-event-org">DPT OF SOUND</span></li>
+              <li class="week-cal-event" data-event-id="mon-ecosystem-dinner" hidden><span class="week-cal-event-name">Ecosystem Dinner</span><span class="week-cal-event-org">SAC TECH CONSORTIUM</span></li>
             </ul>
           </div>
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Tues <span>10/20</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="tue-n8n-at-noon" role="button" tabindex="0"><span class="week-cal-event-name">N8N at Noon</span><span class="week-cal-event-org">SIMPLE 10 / N8N AMBASSADOR</span></li>
-              <li class="week-cal-event" data-event-id="tue-ai-career-pathways" role="button" tabindex="0"><span class="week-cal-event-name">AI Career Pathways + Workshop / Digital Ready</span><span class="week-cal-event-org">PWRD BY VERIZON</span></li>
-              <li class="week-cal-event" data-event-id="tue-sac-tech-connect" role="button" tabindex="0"><span class="week-cal-event-name">Sac Tech Connect</span><span class="week-cal-event-org">START UP SAC</span></li>
-              <li class="week-cal-event" data-event-id="tue-govt-ai" role="button" tabindex="0"><span class="week-cal-event-name">Govt &amp; AI</span><span class="week-cal-event-org">STARTUP FOLSOM</span></li>
+              <li class="week-cal-event" data-event-id="tue-n8n-at-noon" hidden><span class="week-cal-event-name">N8N at Noon</span><span class="week-cal-event-org">SIMPLE 10 / N8N AMBASSADOR</span></li>
+              <li class="week-cal-event" data-event-id="tue-ai-career-pathways" hidden><span class="week-cal-event-name">AI Career Pathways + Workshop / Digital Ready</span><span class="week-cal-event-org">PWRD BY VERIZON</span></li>
+              <li class="week-cal-event" data-event-id="tue-sac-tech-connect" hidden><span class="week-cal-event-name">Sac Tech Connect</span><span class="week-cal-event-org">START UP SAC</span></li>
+              <li class="week-cal-event" data-event-id="tue-govt-ai" hidden><span class="week-cal-event-name">Govt &amp; AI</span><span class="week-cal-event-org">STARTUP FOLSOM</span></li>
+              <li class="week-cal-event week-cal-event--static"><span class="week-cal-event-name">Startup World Cup</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
             </ul>
           </div>
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Wed <span>10/21</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="wed-common-knowledge" role="button" tabindex="0"><span class="week-cal-event-name">Common Knowledge @ UH</span><span class="week-cal-event-org">URBAN HIVE</span></li>
-              <li class="week-cal-event" data-event-id="wed-ai-small-business" role="button" tabindex="0"><span class="week-cal-event-name">AI for Small Business</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
-              <li class="week-cal-event" data-event-id="wed-byob" role="button" tabindex="0"><span class="week-cal-event-name">Bring Your Own Beamer</span><span class="week-cal-event-org">BYOB</span></li>
-              <li class="week-cal-event" data-event-id="wed-certified-aws" role="button" tabindex="0"><span class="week-cal-event-name">Certified with AWS</span><span class="week-cal-event-org">AWS</span></li>
+              <li class="week-cal-event" data-event-id="wed-common-knowledge" hidden><span class="week-cal-event-name">Common Knowledge @ UH</span><span class="week-cal-event-org">URBAN HIVE</span></li>
+              <li class="week-cal-event" data-event-id="wed-ai-small-business"><span class="week-cal-event-name">AI for Small Business</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
+              <li class="week-cal-event" data-event-id="wed-byob" hidden><span class="week-cal-event-name">Bring Your Own Beamer</span><span class="week-cal-event-org">BYOB</span></li>
+              <li class="week-cal-event" data-event-id="wed-certified-aws" hidden><span class="week-cal-event-name">Certified with AWS</span><span class="week-cal-event-org">AWS</span></li>
             </ul>
           </div>
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Thur <span>10/22</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="thur-curiosity-nights" role="button" tabindex="0"><span class="week-cal-event-name">Curiosity Nights @ MOSAC</span><span class="week-cal-event-org">MOSAC</span></li>
-              <li class="week-cal-event" data-event-id="thur-simply-lovable" role="button" tabindex="0"><span class="week-cal-event-name">Simply Lovable</span><span class="week-cal-event-org">MATT L., CRAFTSMAN AI</span></li>
-              <li class="week-cal-event" data-event-id="thur-byob-sofar" role="button" tabindex="0"><span class="week-cal-event-name">BYOB + SoFar</span><span class="week-cal-event-org">BYOB / SOFAR</span></li>
-              <li class="week-cal-event" data-event-id="thur-granite-city" role="button" tabindex="0"><span class="week-cal-event-name">Granite City Coworking Space</span><span class="week-cal-event-org">MEDSTART</span></li>
+              <li class="week-cal-event" data-event-id="thur-curiosity-nights" hidden><span class="week-cal-event-name">Curiosity Nights @ MOSAC</span><span class="week-cal-event-org">MOSAC</span></li>
+              <li class="week-cal-event" data-event-id="thur-simply-lovable" hidden><span class="week-cal-event-name">Simply Lovable</span><span class="week-cal-event-org">MATT L., CRAFTSMAN AI</span></li>
+              <li class="week-cal-event" data-event-id="thur-byob-sofar" hidden><span class="week-cal-event-name">BYOB + SoFar</span><span class="week-cal-event-org">BYOB / SOFAR</span></li>
+              <li class="week-cal-event" data-event-id="thur-granite-city" hidden><span class="week-cal-event-name">Granite City Coworking Space</span><span class="week-cal-event-org">MEDSTART</span></li>
+              <li class="week-cal-event week-cal-event--static"><span class="week-cal-event-name">Full Event List Dropping Soon</span></li>
             </ul>
           </div>
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Fri <span>10/23</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="fri-byob" role="button" tabindex="0"><span class="week-cal-event-name">BYOB</span><span class="week-cal-event-org">BRING YOUR OWN BEAMER</span></li>
-              <li class="week-cal-event" data-event-id="fri-coffee-claude" role="button" tabindex="0"><span class="week-cal-event-name">Coffee &amp; Claude</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
-              <li class="week-cal-event" data-event-id="fri-amazon-pitch" role="button" tabindex="0"><span class="week-cal-event-name">Amazon Pitch Competition</span><span class="week-cal-event-org">AMAZON + SF</span></li>
-              <li class="week-cal-event" data-event-id="fri-make-made" role="button" tabindex="0"><span class="week-cal-event-name">Make &amp; Made</span><span class="week-cal-event-org">MADE STUDIOS &amp; MAKER USA</span></li>
+              <li class="week-cal-event" data-event-id="fri-byob" hidden><span class="week-cal-event-name">BYOB</span><span class="week-cal-event-org">BRING YOUR OWN BEAMER</span></li>
+              <li class="week-cal-event" data-event-id="fri-coffee-claude" hidden><span class="week-cal-event-name">Coffee &amp; Claude</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
+              <li class="week-cal-event" data-event-id="fri-amazon-pitch"><span class="week-cal-event-name">Amazon AWS Pitch Competition</span><span class="week-cal-event-org">AMAZON + SF</span></li>
+              <li class="week-cal-event" data-event-id="fri-make-made" hidden><span class="week-cal-event-name">Make &amp; Made</span><span class="week-cal-event-org">MADE STUDIOS &amp; MAKER USA</span></li>
             </ul>
           </div>
           <div class="week-cal-day">
             <h3 class="week-cal-day-title">Sat <span>10/24</span></h3>
             <ul class="week-cal-events">
-              <li class="week-cal-event" data-event-id="sat-innovation-summit" role="button" tabindex="0"><span class="week-cal-event-name">Innovation Summit</span><span class="week-cal-event-org">SAC TECH CONSORTIUM</span></li>
-              <li class="week-cal-event" data-event-id="sat-byob" role="button" tabindex="0"><span class="week-cal-event-name">BYOB</span><span class="week-cal-event-org">BRING YOUR OWN BEAMER</span></li>
-              <li class="week-cal-event" data-event-id="sat-sustainability" role="button" tabindex="0"><span class="week-cal-event-name">Sustainability Event</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
+              <li class="week-cal-event" data-event-id="sat-tandem-summit"><span class="week-cal-event-name">STW Tandem Summit</span><span class="week-cal-event-org">SAC TECH CONSORTIUM</span></li>
+              <li class="week-cal-event" data-event-id="sat-byob" hidden><span class="week-cal-event-name">BYOB</span><span class="week-cal-event-org">BRING YOUR OWN BEAMER</span></li>
+              <li class="week-cal-event" data-event-id="sat-sustainability" hidden><span class="week-cal-event-name">Sustainability Event</span><span class="week-cal-event-org">SAC TECH WEEK</span></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="week-cal-foot" style="text-align: center;">
-        <a class="core-event-btn" href="https://forms.gle/QdtCGPudH7ByVttSA" target="_blank" rel="noopener">Host An Event</a>
+      <div class="calendar-signup reveal">
+        <p class="calendar-signup-label">Full calendar drops September.</p>
+        <h3>Be the first to see it.</h3>
+        <p>We’ll send the schedule the day it goes live, plus event drops, ticket windows, and whatever else we turn up along the way.</p>
+        <form class="calendar-signup-form" data-newsletter-form action="/newsletter-signup" method="post">
+          <label class="visually-hidden" for="calendar-newsletter-email">Email address</label>
+          <input id="calendar-newsletter-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <button type="submit">Follow the rabbit</button>
+        </form>
+        <small>No spam. A handful of emails between now and October.</small>
       </div>
 
-      <p class="poster-kicker reveal" style="margin-top: 3rem; margin-bottom: 1.5rem;">[ STW Hosted Events ]</p>
+      <div class="poster-foot">
+        <span class="stars" aria-hidden="true">★ ✦ ★</span>
+        <span class="poster-kicker">Full calendar drops September.</span>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="why texture-field" aria-labelledby="why-title">
+      <p class="zone zone--lavender reveal">04 / WHY YOU SHOULD SHOW UP</p>
+      <h2 class="why-title reveal" id="why-title">Six days. Twenty-plus reasons to leave the house.</h2>
+      <div class="why-grid">
+        <div class="why-copy reveal">
+          <p>20+ events across the city — panels, workshops, build sessions, mixers, and demos. Most run 1–2 hours. 4 signature events hosted by STW. 1 STW Tandem Summit to close it out — 30,000 sq ft, 500+ people, the whole ecosystem in one room.</p>
+          <p>Most of it is free. All of it is open. You don't need a badge, an invite, or a job in tech.</p>
+        </div>
+        <ul class="voice-list why-list reveal">
+          <li>
+            <span class="zone zone--lavender">01 / You’ll meet the people building here</span>
+            <p>Not the ones speaking about it. Founders mid-pitch, engineers mid-build, makers mid-process. In the room, not on a stage.</p>
+          </li>
+          <li>
+            <span class="zone zone--lavender">02 / You’ll see it before it’s finished</span>
+            <p>Products that aren’t done yet. A warehouse turned into light and motion. Films made by people who live twenty minutes from you.</p>
+          </li>
+          <li>
+            <span class="zone zone--lavender">03 / You’ll be early</span>
+            <p>To whatever Sacramento becomes next. This is year one.</p>
+          </li>
+        </ul>
+      </div>
+      <p class="why-closing reveal">No badge scanners. No hotel ballrooms. No velvet rope. The city is the venue and the door is open.</p>
+    </section>
+
+    <!-- ============ THE PROGRAM ============ -->
+    <section class="program texture-field" id="program" aria-labelledby="program-title">
+      <p class="zone zone--lavender reveal">05 / THE PROGRAM</p>
+      <h2 class="program-title reveal" id="program-title">Four signature events. One Summit. Twenty-plus more across the city.</h2>
+      <p class="program-lede reveal">Four events hosted by STW anchor the week, and the STW Tandem Summit closes it. Around them, partners run their own events in every corner of Sacramento — same week, all over town.</p>
 
       <ol class="event-list">
         <li class="event reveal">
           <div class="event-meta">
             <span>[ 01 / STW ]</span>
-            <span>Opening</span>
-            <span>Government × academia × industry</span>
+            <span>Film × AI</span>
+            <span>Urban Hive / Premieres at the Summit</span>
           </div>
-          <h3>Kickoff Breakfast</h3>
-          <p>
-            Sacramento State of Innovation — the week opens with leaders across
-            government, academia, and industry, and keynote insights on the
-            state of innovation in the region.
-          </p>
+          <h3>AI Film Lab</h3>
+          <div class="event-copy">
+            <p class="event-description">A curated short-film showcase: twelve AI filmmakers and twelve youth creators from the AI Film Lab Summer Program, exploring storytelling where creativity meets artificial intelligence.</p>
+            <a class="core-event-btn" href="https://forms.gle/Fywgcf47bksqGTBZ6" target="_blank" rel="noopener">Submit Your Film ↗</a>
+          </div>
         </li>
 
         <li class="event reveal">
@@ -276,13 +353,10 @@
             <span>Urban Hive / 12,000 sq ft</span>
           </div>
           <h3>Startup Marketplace</h3>
-          <p>
-            The central showcase of the Capitol Region Innovation Summit —
-            product-ready startups from across the ecosystem in a booth-style
-            floor highlighting the builders, tools, and ideas shaping the
-            region's future.
-          </p>
-          <a class="core-event-btn" href="#" aria-disabled="true">Startup Signup Coming Soon ↗</a>
+          <div class="event-copy">
+            <p class="event-description">The central showcase of the STW Tandem Summit — product-ready startups from across the ecosystem in a booth-style floor highlighting the builders, tools, and ideas shaping the region's future.</p>
+            <a class="core-event-btn" href="#" aria-disabled="true">Startup Signup Coming Soon ↗</a>
+          </div>
         </li>
 
         <li class="event reveal">
@@ -292,53 +366,41 @@
             <span>Urban Hive / Free + open to the public</span>
           </div>
           <h3>B.Y.O.B.</h3>
-          <p>
-            Bring Your Own Beamer — a projection-mapping showcase from multiple
-            artists, turning space into a living canvas of light and motion.
-            Twice daily over three days, with live music, up to 200 guests
-            per showing.
-          </p>
-          <a class="core-event-btn" href="https://forms.gle/9AtzX1NG3JbGAQUb9" target="_blank" rel="noopener">Artist Signup ↗</a>
+          <div class="event-copy">
+            <p class="event-description">Bring Your Own Beamer — a projection-mapping showcase from multiple artists, turning space into a living canvas of light and motion. Twice daily over three days, with live music, up to 200 guests per showing.</p>
+            <a class="core-event-btn" href="https://forms.gle/9AtzX1NG3JbGAQUb9" target="_blank" rel="noopener">Artist Signup ↗</a>
+          </div>
         </li>
 
         <li class="event reveal">
           <div class="event-meta">
             <span>[ 04 / STW ]</span>
-            <span>Film × AI</span>
-            <span>Urban Hive / Premieres at the Summit</span>
+            <span>Opening</span>
+            <span>Government × academia × industry</span>
           </div>
-          <h3>AI Film Lab</h3>
-          <p>
-            A curated short-film showcase: twelve AI filmmakers and twelve youth
-            creators from the AI Film Lab Summer Program, exploring storytelling
-            where creativity meets artificial intelligence.
-          </p>
-          <a class="core-event-btn" href="https://forms.gle/Fywgcf47bksqGTBZ6" target="_blank" rel="noopener">Submit Your Film ↗</a>
+          <h3>Kickoff Breakfast</h3>
+          <div class="event-copy">
+            <p class="event-description">Sacramento State of Innovation — the week opens with leaders across government, academia, and industry, and keynote insights on the state of innovation in the region.</p>
+          </div>
         </li>
 
-        <li class="event reveal">
+        <li class="event event--summit reveal">
           <div class="event-meta">
             <span>[ 05 / STW ]</span>
             <span>Grand finale</span>
             <span>Urban Hive / 30,000+ sq ft / 500+ attendees</span>
           </div>
-          <h3>Capitol Region Innovation Summit</h3>
-          <p>
-            The grand finale: a full-day exploration of what's next, with
-            workshops, panels, live demonstrations, fifteen-plus activations,
-            and a marketplace of emerging ventures.
-          </p>
+          <h3>STW Tandem Summit</h3>
+          <div class="event-copy">
+            <p class="event-description">The grand finale: a full-day exploration of what's next, with workshops, panels, live demonstrations, fifteen-plus activations, and a marketplace of emerging ventures.</p>
+          </div>
         </li>
       </ol>
-
-      <div class="poster-foot">
-        <span class="stars" aria-hidden="true">★ ✦ ★</span>
-        <span class="poster-kicker">Partner-event schedule preview — times and RSVP links coming soon</span>
-      </div>
     </section>
 
     <!-- ============ CITY ============ -->
-    <section class="city texture-field" aria-labelledby="city-title">
+    <section class="city texture-field" aria-labelledby="city-title" hidden>
+      <p class="zone zone--lavender reveal">06 / THE CITY</p>
       <p class="city-coords reveal">&gt; 38.5816° N / 121.4944° W — SAC_CA</p>
       <h2 class="city-title reveal" id="city-title">
         Sacramento, <em>specifically.</em>
@@ -347,8 +409,17 @@
         The river, the bridges, the warehouses, the airport rabbit. STW doesn't
         rent the city as a backdrop — place earns its way into every series.
         Real people doing real work: founders mid-pitch, engineers mid-build,
-        makers mid-process, candid over composed.
+        makers mid-process, candid over composed. And the rabbit at the airport, which has been leaping at something none of us can see for years now.
       </p>
+    </section>
+
+    <!-- ============ HOST AN EVENT ============ -->
+    <section class="host texture-field" aria-labelledby="host-title">
+      <p class="zone zone--lavender reveal">06 / HOST AN EVENT</p>
+      <h2 class="host-title reveal" id="host-title">Got something to run?</h2>
+      <p class="host-body reveal">The week is built by the people who already do this work. If you’ve got a workshop, a panel, a build night, or a room — we’ll find it a slot, an audience, and a place on the calendar.</p>
+      <p class="host-status reveal">We’re short on build sessions and partner showcases. Panels are filling up fast.</p>
+      <a class="host-link reveal" href="https://forms.gle/QdtCGPudH7ByVttSA" target="_blank" rel="noopener">Host an event →</a>
     </section>
 
     <!-- ============ CONSORTIUM TEASER ============ -->
@@ -398,24 +469,26 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
+    <section class="footer-sponsors" aria-label="Presented by">
+      <p>Presented by</p>
+      <ul>
+        <li class="footer-sponsor footer-sponsor--bosch"><img src="assets/sponsor-bosch.svg" alt="Bosch"></li>
+        <li class="footer-sponsor"><img src="assets/sponsor-smud.svg" alt="SMUD"></li>
+        <li class="footer-sponsor footer-sponsor--urbanhive"><img src="assets/urban-hive-white.svg" alt="Urban Hive"></li>
+        <li class="footer-sponsor footer-sponsor--aws"><img src="assets/sponsor-aws.svg" alt="AWS"></li>
+      </ul>
+    </section>
     <div class="footer-grid">
       <div class="footer-mark">
         <img src="assets/stw-mark-white.png" alt="stw." width="1550" height="736">
       </div>
-      <form id="newsletter-form" class="footer-newsletter" action="/newsletter-signup" method="post">
-        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
-        <label class="footer-newsletter-title" for="newsletter-email">STW Newsletter</label>
-        <div class="footer-newsletter-fields">
-          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="Your email address" required>
-          <button type="submit">Sign up</button>
-        </div>
-      </form>
       <div class="footer-meta">
         <span>©2026 Sac Tech Week</span>
         <span>October 19 – 24 / Sacramento CA</span>
         <span class="status">System ready / Signal stable</span>
       </div>
     </div>
+    <a class="footer-rabbit" href="rabbit.html" aria-label="Enter the rabbit hole"><img src="assets/rabbit-white.png" alt=""></a>
   </footer>
 
   <!-- ============ BOTTOM NAV ============ -->
