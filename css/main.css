@@ -811,7 +811,6 @@ img { max-width: 100%; height: auto; display: block; }
 .week-cal-event-org { display: block; margin-top: 0.25rem; color: rgba(255, 255, 255, 0.76); font-family: var(--font-pixel); font-size: 0.72rem; line-height: 1.25; letter-spacing: 0.05em; text-transform: uppercase; }
 
 .calendar-signup {
-  max-width: 44rem;
   margin: clamp(2.5rem, 6vh, 5rem) auto 0;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   color: var(--white);
@@ -951,7 +950,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .program { background: var(--void-2); }
-.program-title { max-width: 17ch; }
+.program-title { max-width: 24ch; }
 .program-lede { margin: 1.8rem 0 clamp(3rem, 7vh, 5.5rem); }
 
 .program .event-list { border-top-color: var(--line-strong); }
@@ -1693,6 +1692,8 @@ img { max-width: 100%; height: auto; display: block; }
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
+  .program .event { grid-template-columns: 1fr; }
 
   .why-title { max-width: none; }
 
