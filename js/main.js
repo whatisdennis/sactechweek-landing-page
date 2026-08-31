@@ -128,6 +128,7 @@ document.querySelectorAll("[data-newsletter-form]").forEach((newsletterForm) => 
 // --- Home-page live calendar -----------------------------------------
 const weekEvents = [
   { date: "2026-10-19", day: "Monday, October 19", time: "9:00 AM–12:00 PM", title: "State of Innovaiton Kickoff Breakfast - STW", url: "https://luma.com/j9jspm0p" },
+  { date: "2026-10-19", day: "Monday, October 19", time: "12:00 PM–2:00 PM PDT", title: "N8N at Noon - N8N", url: "https://luma.com/118fsgex" },
   { date: "2026-10-19", day: "Monday, October 19", time: "6:00 PM–8:00 PM PDT", title: "Woman in Tech Panel - Woman Business Center", url: "https://luma.com/fp7x1by6" },
   { date: "2026-10-20", day: "Tuesday, October 20", time: "3:00–6:00 PM", title: "AI Programming Bootcamp - Playful Programming", url: "https://luma.com/d184kjg7" },
   { date: "2026-10-20", day: "Tuesday, October 20", time: "4:00–8:00 PM", title: "Startup World Cup - STW", description: "Global startup conference and competition connecting startups, VCs, entrepreneurs, and tech CEOs.", url: "https://luma.com/kbji68lz" },
