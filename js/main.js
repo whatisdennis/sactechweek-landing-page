@@ -125,88 +125,48 @@ document.querySelectorAll("[data-newsletter-form]").forEach((newsletterForm) => 
   });
 });
 
-// --- Home-page week calendar -----------------------------------------
-const weekEvents = {
-  "mon-kickoff": ["State of Innovation Kickoff Breakfast", "Monday, October 19", "SAC TECH WEEK", "The official opening of Sac Tech Week at Golden 1 Center."],
-  "mon-women-in-tech": ["Women in Tech: An Evening Discussion", "Monday, October 19", "TIFFANI M. & SOPHIA K.", "An evening conversation with women leaders shaping Sacramento's technology community."],
-  "mon-suno-101": ["Suno 101: AI Music Production", "Monday, October 19", "DPT OF SOUND", "Explore the creative possibilities of AI-assisted music production in this hands-on introduction to Suno."],
-  "mon-ecosystem-dinner": ["Ecosystem Dinner", "Monday, October 19", "SAC TECH CONSORTIUM", "A welcoming dinner for the people and organizations building Sacramento's innovation ecosystem."],
-  "tue-n8n-at-noon": ["N8N at Noon", "Tuesday, October 20", "SIMPLE 10 / N8N AMBASSADOR", "A lunchtime session on designing useful workflows and automations with n8n."],
-  "tue-ai-career-pathways": ["AI Career Pathways + Workshop / Digital Ready", "Tuesday, October 20", "PWRD BY VERIZON", "Learn about emerging AI career pathways, then put practical digital skills to work in a guided workshop."],
-  "tue-sac-tech-connect": ["Sac Tech Connect", "Tuesday, October 20", "START UP SAC", "Meet founders, builders, and community members making new connections across Sacramento tech."],
-  "tue-govt-ai": ["Govt & AI", "Tuesday, October 20", "STARTUP FOLSOM", "A community conversation on how Government and AI can support better public-sector services and civic innovation."],
-  "wed-common-knowledge": ["Common Knowledge @ UH", "Wednesday, October 21", "URBAN HIVE", "A Common Knowledge gathering at Urban Hive, bringing curious people together for ideas, conversation, and connection."],
-  "wed-ai-small-business": ["AI for Small Business", "Wednesday, October 21", "SAC TECH WEEK", "Practical tools and ideas to help small-business owners use AI in their everyday work."],
-  "wed-byob": ["Bring Your Own Beamer", "Wednesday, October 21", "BYOB", "A projection-art showcase where artists turn shared space into a living canvas of light and motion."],
-  "wed-certified-aws": ["Certified with AWS", "Wednesday, October 21", "AWS", "Discover AWS learning and certification pathways for people ready to build their cloud skills."],
-  "thur-curiosity-nights": ["Curiosity Nights @ MOSAC", "Thursday, October 22", "MOSAC", "An after-hours night of science, technology, and hands-on curiosity at MOSAC."],
-  "thur-simply-lovable": ["Simply Lovable", "Thursday, October 22", "MATT L., CRAFTSMAN AI", "A thoughtful session on making AI products people genuinely want to use."],
-  "thur-byob-sofar": ["BYOB + SoFar", "Thursday, October 22", "BYOB / SOFAR", "Projection art meets an intimate live-music experience for a night of immersive creative work."],
-  "thur-granite-city": ["Granite City Coworking Space", "Thursday, October 22", "MEDSTART", "Connect with the people building the next chapter of health, science, and startup work in Sacramento at Granite City Coworking."],
-  "fri-byob": ["BYOB", "Friday, October 23", "BRING YOUR OWN BEAMER", "A Friday edition of the projection-art showcase, with a fresh field of light and movement."],
-  "fri-coffee-claude": ["Coffee & Claude", "Friday, October 23", "SAC TECH WEEK", "Bring your questions for a casual coffee conversation about working with Claude, Anthropic AI assistant."],
-  "fri-amazon-pitch": ["Amazon Pitch Competition", "Friday, October 23", "AMAZON + SF", "Watch ambitious founders present their ideas and compete for an opportunity to move their ventures forward."],
-  "fri-make-made": ["Make & Made", "Friday, October 23", "MADE STUDIOS & MAKER USA", "A celebration of making, design, and the people turning creative ideas into tangible work."],
-  "sat-tandem-summit": ["STW Tandem Summit", "Saturday, October 24", "SAC TECH CONSORTIUM", "A full-day gathering of workshops, conversations, demonstrations, and big ideas for the Sacramento region."],
-  "sat-byob": ["BYOB", "Saturday, October 24", "BRING YOUR OWN BEAMER", "The final night of projection art, built for wandering, watching, and seeing the city differently."],
-  "sat-sustainability": ["Sustainability Event", "Saturday, October 24", "SAC TECH WEEK", "A community event focused on sustainable ideas, technologies, and actions for the Sacramento region."],
-};
+// --- Home-page live calendar -----------------------------------------
+const weekEvents = [
+  { date: "2026-10-19", day: "Monday, October 19", time: "9:00 AM–12:00 PM", title: "State of Innovaiton Kickoff Breakfast - STW", url: "https://luma.com/j9jspm0p" },
+  { date: "2026-10-19", day: "Monday, October 19", time: "6:00 PM–8:00 PM PDT", title: "Woman in Tech Panel - Woman Business Center", url: "https://luma.com/fp7x1by6" },
+  { date: "2026-10-20", day: "Tuesday, October 20", time: "3:00–6:00 PM", title: "AI Programming Bootcamp - Playful Programming", url: "https://luma.com/d184kjg7" },
+  { date: "2026-10-20", day: "Tuesday, October 20", time: "4:00–8:00 PM", title: "Startup World Cup - STW", description: "Global startup conference and competition connecting startups, VCs, entrepreneurs, and tech CEOs.", url: "https://luma.com/kbji68lz" },
+  { date: "2026-10-20", day: "Tuesday, October 20", time: "5:00–9:00 PM", title: "Advanced AI Workshop - AIAJ Academy", description: "Practical advanced-AI workshop, panel, and networking for professionals implementing AI in real business workflows.", url: "https://luma.com/r1q71j09" },
+  { date: "2026-10-20", day: "Tuesday, October 20", time: "6:00–9:00 PM", title: "SacTech Social - SacTech Inc.", description: "Inclusive networking social for technology professionals to connect, collaborate, hire, and find jobs.", url: "https://luma.com/s0xemi9e" },
+  { date: "2026-10-20", day: "Tuesday, October 20", time: "6:00–8:00 PM", title: "AI Meet Up featuring AWS Partner Initiatives Manager Robby Gill - Startup Folsom", description: "Monthly AI meetup with pizza, discussion, networking, and a featured AWS speaker.", url: "https://luma.com/6stv67gu" },
+  { date: "2026-10-21", day: "Wednesday, October 21", time: "9:00–10:00 AM", title: "Virtual Pitch Feedback - 1 Million Cups", url: "https://luma.com/f8cqy3sw" },
+  { date: "2026-10-21", day: "Wednesday, October 21", time: "11:00 AM–3:00 PM PDT", title: "AI for Small Business - SVP", description: "Norcal SBDC & CA Capital; co-host The AI Collective.", url: "https://luma.com/rbhk3qa7" },
+  { date: "2026-10-21", day: "Wednesday, October 21", time: "5:30–8:30 PM", title: "Build for Impact in Gov & Civic Tech - Koi Studios", description: "Panel on designing responsible, high-impact AI-era technology for government and civic users.", url: "https://luma.com/bemj37kv" },
+  { date: "2026-10-21", day: "Wednesday, October 21", time: "6:00–9:00 PM", title: "Circular Manufacturing Exhibit - EcoPress", description: "Interactive exhibit and demos on turning local plastic waste into products, art, and sustainable materials.", url: "https://luma.com/9a9zt1u7" },
+  { date: "2026-10-21", day: "Wednesday, October 21", time: "6:00–9:00 PM", title: "The Future of Autonomous Vehicles - Common Knowledge", description: "UC Davis lecture examining real-world autonomous-vehicle safety, deployment, and civic impacts.", url: "https://luma.com/o2mwnzzk" },
+  { date: "2026-10-22", day: "Thursday, October 22", time: "11:00 AM–2:00 PM PDT", title: "Sustainability Event - Atrium", url: "https://luma.com/xbjdrc7k" },
+  { date: "2026-10-22", day: "Thursday, October 22", time: "5:00–8:00 PM", title: "AI Town Hall - AI for Good SVP", description: "Talk on the Creative Economy Entrepreneurship Initiative with Sacramento Venture Philanthropy’s AI for Good.", url: "https://luma.com/x00pc859" },
+  { date: "2026-10-22", day: "Thursday, October 22", time: "6:00 PM–8:00 PM PDT", title: "Simply Lovable - Craftsman AI", url: "https://luma.com/bnm4g7rg" },
+  { date: "2026-10-23", day: "Friday, October 23", time: "6:30–9:00 PM", title: "Amazon Pitch Competition - AWS", url: "https://luma.com/dtzaajd3" },
+  { date: "2026-10-24", day: "Saturday, October 24", time: "9:00 AM–5:00 PM", title: "Tandem Summit - STW", description: "Tandem Summit is SacTech Week’s capstone event: a gathering for the people building, questioning, experiencing, and imagining the future of technology.", url: "https://luma.com/qerdn7wo" },
+];
 
-Object.entries(weekEvents).forEach(([id, [title, day, org, description]]) => {
-  const images = {
-    "wed-byob": "assets/event-byob.webp",
-    "thur-byob-sofar": "assets/event-byob.webp",
-    "fri-byob": "assets/event-byob.webp",
-    "sat-byob": "assets/event-byob.webp",
-    "sat-tandem-summit": "assets/event-marketplace.webp",
-  };
-  weekEvents[id] = { title, day, org, description, image: images[id] || null };
+document.querySelectorAll("[data-calendar-date]").forEach((list) => {
+  const eventsForDay = weekEvents.filter((event) => event.date === list.dataset.calendarDate);
+
+  eventsForDay.forEach((event) => {
+    const item = document.createElement("li");
+    item.className = "week-cal-event";
+
+    const title = document.createElement("span");
+    title.className = "week-cal-event-name";
+    title.textContent = event.title;
+
+    item.append(title);
+
+    const link = document.createElement("a");
+    link.className = "week-cal-event-link";
+    link.href = event.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", `View ${event.title} on Luma (opens in a new tab)`);
+    link.textContent = "View event on Luma ↗";
+    item.append(link);
+    list.append(item);
+  });
 });
-
-const eventModal = document.getElementById("event-modal");
-const calendarModalEnabled = document.querySelector(".week-cal")?.dataset.calendarModalEnabled === "true";
-if (eventModal) {
-  const modalTitle = document.getElementById("modal-title");
-  const modalMeta = document.getElementById("modal-meta");
-  const modalBlurb = document.getElementById("modal-blurb");
-  const modalImage = document.getElementById("modal-image");
-  const modalRsvp = document.getElementById("modal-rsvp");
-  const closeButton = eventModal.querySelector(".ev-dialog-close");
-
-  const openEventModal = (eventId) => {
-    if (!calendarModalEnabled) return;
-    const event = weekEvents[eventId];
-    if (!event) return;
-    modalTitle.textContent = event.title;
-    modalMeta.textContent = `${event.day} / ${event.org}`;
-    modalBlurb.textContent = event.description;
-    if (event.image) {
-      modalImage.innerHTML = `<img src="${event.image}" alt="${event.title}" loading="lazy" decoding="async" />`;
-    } else {
-      modalImage.textContent = "Event photo coming soon";
-    }
-    modalRsvp.textContent = "RSVP opens soon. Get email updates.";
-    eventModal.showModal();
-  };
-
-  document.querySelectorAll(".week-cal-event").forEach((item) => {
-    if (calendarModalEnabled && item.dataset.eventId) {
-      item.setAttribute("role", "button");
-      item.tabIndex = 0;
-    }
-    item.addEventListener("click", () => openEventModal(item.dataset.eventId));
-    item.addEventListener("keydown", (event) => {
-      if (!calendarModalEnabled) return;
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openEventModal(item.dataset.eventId);
-      }
-    });
-  });
-
-  closeButton.addEventListener("click", () => eventModal.close());
-  eventModal.addEventListener("click", (event) => {
-    if (event.target === eventModal) eventModal.close();
-  });
-  eventModal.addEventListener("cancel", () => eventModal.close());
-}

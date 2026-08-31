@@ -1,0 +1,142 @@
+/* Isolated static port of Tandem-Future's home route. */
+#tandem-page{--bg:#24231d;--fg:#f0ede2;--muted:#aaa69b;--signal:#d3f24c;--rule:rgba(240,237,226,.16);--tandem-kicker-font:"Pixelify Sans",monospace;background:var(--bg);color:var(--fg);font-family:"DM Sans",system-ui,sans-serif;font-size:16px;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased}
+#tandem-page *,#tandem-page *::before,#tandem-page *::after{box-sizing:border-box}
+#tandem-page a{color:inherit;text-decoration:none}
+#tandem-page img{display:block;max-width:100%}
+#tandem-page h1,#tandem-page h2,#tandem-page h3,#tandem-page p{margin:0}
+#tandem-page .tandem-shell{width:100%;max-width:1280px;margin-inline:auto;padding-inline:24px}
+#tandem-page .tandem-display,#tandem-page h1,#tandem-page h2,#tandem-page h3,#tandem-page .tandem-wordmark,#tandem-page .tandem-closing-lockup>p:first-child{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:.94;letter-spacing:-.02em}
+#tandem-page .tandem-label,#tandem-page .tandem-section-label,#tandem-page .tandem-promo,#tandem-page .tandem-hero-return,#tandem-page .tandem-ticker>div,#tandem-page .tandem-agenda-head,#tandem-page .tandem-experience b{font-family:var(--tandem-kicker-font);font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-nav-links,#tandem-page .tandem-ticket,#tandem-page .tandem-agenda b,#tandem-page .tandem-tracks>article>b,#tandem-page .tandem-number-list b{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-signal,#tandem-page i,#tandem-page .tandem-number-list b,#tandem-page .tandem-tracks>article>b{color:var(--signal)}
+#tandem-page .tandem-muted{color:var(--muted)}
+#tandem-page .tandem-skip{position:absolute;z-index:200;top:-50px;left:20px;padding:10px;background:var(--signal);color:var(--bg)!important}
+#tandem-page .tandem-skip:focus{top:10px}
+#tandem-page .tandem-promo{display:block;padding-block:10px;background:var(--signal);color:var(--bg)!important;text-align:center}
+#tandem-page .tandem-nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 24px;border-bottom:1px solid var(--rule);background:rgba(36,35,29,.85);backdrop-filter:blur(12px)}
+#tandem-page .tandem-wordmark{font-size:24px;line-height:1}
+#tandem-page .tandem-wordmark span,#tandem-page h1 span,#tandem-page .tandem-closing-lockup span{color:var(--signal)}
+#tandem-page .tandem-nav-panel{display:contents}
+#tandem-page .tandem-nav-toggle{display:none}
+#tandem-page .tandem-nav-links{display:none;gap:28px;color:var(--muted)}
+#tandem-page .tandem-nav-links a:hover{color:var(--signal)}
+#tandem-page .tandem-nav-links a:hover,#tandem-page .tandem-bridge-return:hover{text-decoration:underline;text-underline-offset:4px}
+#tandem-page .tandem-ticket{padding:8px 16px;border:1px solid var(--signal);color:var(--signal)!important}
+#tandem-page .tandem-ticket:hover{background:var(--signal);color:var(--bg)!important}
+#tandem-page .tandem-hero{position:relative;display:flex;align-items:flex-end;min-height:86vh;overflow:hidden}
+#tandem-page .tandem-hero canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+#tandem-page .tandem-hero-shade{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),rgba(36,35,29,.1) 55%,rgba(36,35,29,.2))}
+#tandem-page .tandem-hero-return{position:absolute;z-index:1;top:96px;right:24px;display:flex;align-items:center;gap:8px;color:var(--fg);opacity:.72;transition:opacity .2s ease}
+#tandem-page .tandem-hero-return img{width:22px;height:auto}
+#tandem-page .tandem-hero-return:hover,#tandem-page .tandem-hero-return:focus-visible{opacity:1}
+#tandem-page .tandem-hero-return:focus-visible{outline:1px solid var(--signal);outline-offset:5px}
+#tandem-page .tandem-hero-copy{position:relative;padding-top:112px;padding-bottom:56px}
+#tandem-page .tandem-hero-copy>.tandem-label{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+#tandem-page .tandem-hero-copy>.tandem-label span{color:var(--muted)}
+#tandem-page h1{margin-top:24px!important;font-size:20vw;line-height:.8}
+#tandem-page .tandem-hero-intro{display:grid;gap:24px;margin-top:24px}
+#tandem-page .tandem-hero-intro .tandem-display{font-size:30px}
+#tandem-page .tandem-hero-intro>p:last-child{max-width:448px;color:rgba(240,237,226,.8);font-size:16px;line-height:1.625}
+#tandem-page .tandem-ticker{overflow:hidden;padding-block:16px;border-block:1px solid var(--rule);background:rgba(43,42,36,.4)}
+#tandem-page .tandem-ticker>div{display:flex;width:max-content;gap:40px;white-space:nowrap;animation:tandem-ticker 40s linear infinite;color:rgba(240,237,226,.7)}
+#tandem-page .tandem-ticker b{font-size:inherit;color:var(--signal)}
+#tandem-page .tandem-section{padding:80px 24px;border-top:1px solid var(--rule);scroll-margin-top:80px}
+#tandem-page .tandem-section>.tandem-shell{padding:0}
+#tandem-page .tandem-section-label{display:flex;gap:16px;align-items:baseline;margin-bottom:48px;color:var(--muted)}
+#tandem-page .tandem-section-label::first-letter{color:var(--signal)}
+#tandem-page .tandem-two{display:grid;gap:40px}
+#tandem-page .tandem-two h2{max-width:15ch;font-size:48px;line-height:.95}
+#tandem-page .tandem-number-list{margin:0;padding:0;list-style:none}
+#tandem-page .tandem-number-list li{display:flex;gap:20px;align-items:baseline;padding-block:12px;border-top:1px solid var(--rule);font-family:"Instrument Serif",Georgia,serif;font-size:24px;font-weight:400;line-height:1.25;letter-spacing:-.02em}
+#tandem-page .tandem-number-list li:last-child{border-bottom:1px solid var(--rule)}
+#tandem-page .tandem-number-list b{flex:none}
+#tandem-page .tandem-crowd{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+#tandem-page .tandem-crowd img{width:100%;height:224px;flex:1;object-fit:cover;object-position:center 40%}
+#tandem-page .tandem-crowd p{max-width:384px;font-size:24px;font-style:italic;color:var(--muted)}
+#tandem-page .tandem-principle-grid>div>p:last-child{padding-top:20px;border-top:1px solid var(--rule);color:rgba(240,237,226,.8)}
+#tandem-page .tandem-pairs{margin:32px 0 0;padding:0;list-style:none}
+#tandem-page .tandem-pairs li{padding-block:12px;border-top:1px solid var(--rule);font-family:"Instrument Serif",Georgia,serif;font-size:30px;font-weight:400;line-height:1;letter-spacing:-.02em}
+#tandem-page .tandem-pairs li b{padding-inline:14px;color:var(--signal)}
+#tandem-page .tandem-principle-grid .tandem-display{padding-top:24px;border-top:1px solid var(--rule);font-size:24px;font-style:italic}
+#tandem-page .tandem-fullbleed{position:relative;display:flex;align-items:flex-end;min-height:48vh;overflow:hidden}
+#tandem-page .tandem-fullbleed>img,#tandem-page .tandem-ticket-cta>img,#tandem-page .tandem-closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#tandem-page .tandem-fullbleed>.tandem-overlay{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),rgba(36,35,29,.6),rgba(36,35,29,.1))}
+#tandem-page .tandem-fullbleed>.tandem-shell{position:relative;padding-block:64px}
+#tandem-page .tandem-fullbleed .tandem-label{margin-bottom:20px}
+#tandem-page .tandem-fullbleed h2{max-width:896px;font-size:36px}
+#tandem-page .tandem-fullbleed .tandem-shell>p:last-child{max-width:576px;margin-top:20px;color:rgba(240,237,226,.8);line-height:1.625}
+#tandem-page .tandem-narrow-title{max-width:768px;font-size:30px}
+#tandem-page .tandem-tracks{display:grid;gap:48px 40px;margin-top:48px}
+#tandem-page .tandem-tracks article{position:relative;padding-top:20px;border-top:1px solid var(--rule)}
+#tandem-page .tandem-tracks article::after{position:absolute;z-index:0;top:20px;right:0;left:0;aspect-ratio:4/3;content:"";background:rgba(36,35,29,.2);mix-blend-mode:multiply;pointer-events:none}
+#tandem-page .tandem-tracks img{width:100%;aspect-ratio:4/3;object-fit:cover}
+#tandem-page .tandem-tracks article>b{position:absolute;z-index:1;top:36px;left:16px;padding:4px 8px;background:var(--signal);color:var(--bg)}
+#tandem-page .tandem-tracks h3{margin-top:20px;font-size:30px}
+#tandem-page .tandem-tracks article>p{margin-top:4px;font-family:"Instrument Serif",Georgia,serif;font-size:18px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--signal)}
+#tandem-page .tandem-tracks ul{margin:16px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+#tandem-page .tandem-tracks li{padding-block:8px;border-top:1px solid var(--rule);line-height:1.375}
+#tandem-page .tandem-tracks li::before{margin-right:12px;content:"+";color:var(--signal)}
+#tandem-page .tandem-experience{display:grid;gap:40px}
+#tandem-page .tandem-experience article{padding-block:32px;border-top:1px solid var(--rule)}
+#tandem-page .tandem-experience b{color:var(--signal)}
+#tandem-page .tandem-experience p{margin-top:16px;color:rgba(240,237,226,.8);line-height:1.625}
+#tandem-page .tandem-experience i{display:block;margin-top:12px;font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--muted)}
+#tandem-page .tandem-short-bleed{min-height:46vh}
+#tandem-page .tandem-stage-grid{display:grid;gap:40px}
+#tandem-page .tandem-stage-grid article{padding-top:24px;border-top:1px solid var(--rule)}
+#tandem-page .tandem-stage-grid h3{font-size:36px}
+#tandem-page .tandem-stage-grid p{margin-top:16px;font-family:"Instrument Serif",Georgia,serif;font-size:24px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--muted)}
+#tandem-page .tandem-speakers{display:grid;gap:40px;margin-top:64px}
+#tandem-page .tandem-speakers h3{margin-top:16px;font-size:30px}
+#tandem-page .tandem-speakers>div>p:last-child{margin-top:16px;font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--signal)}
+#tandem-page .tandem-speakers ul{display:grid;margin:0;padding:0;list-style:none}
+#tandem-page .tandem-speakers li{padding-block:12px;border-top:1px solid var(--rule);font-family:"Instrument Serif",Georgia,serif;font-size:18px;font-weight:400;line-height:1.2;letter-spacing:-.02em}
+#tandem-page .tandem-speakers b{padding-inline:8px;color:var(--signal)}
+#tandem-page .tandem-agenda-head,#tandem-page .tandem-agenda>div{display:grid;gap:32px}
+#tandem-page #agenda .tandem-agenda-time-hidden{display:none}/* Agenda times are intentionally hidden pending schedule confirmation; source values are retained. */
+#tandem-page .tandem-agenda-head{padding-bottom:12px;border-bottom:1px solid var(--rule);color:var(--muted)}
+#tandem-page .tandem-agenda>div{padding-block:16px;border-bottom:1px solid var(--rule)}
+#tandem-page .tandem-agenda b{color:var(--signal)}
+#tandem-page .tandem-agenda p{font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-weight:400;line-height:.94;letter-spacing:-.02em}
+#tandem-page .tandem-agenda small{display:block;margin-top:4px;color:var(--muted);font-size:14px;line-height:1.5}
+#tandem-page .tandem-agenda-cta{display:inline-block;margin-top:32px;padding:16px 32px;background:var(--signal);color:var(--bg)!important;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-agenda-cta:hover{background:var(--fg)}
+#tandem-page .tandem-agenda-cta:focus-visible{outline:1px solid var(--signal);outline-offset:5px}
+#tandem-page .tandem-ticket-cta{position:relative;overflow:hidden;border-top:1px solid var(--rule)}
+#tandem-page .tandem-ticket-cta>img{opacity:.3;object-position:center 40%}
+#tandem-page .tandem-ticket-cta>div:not(.tandem-shell){position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),rgba(36,35,29,.9),rgba(36,35,29,.7))}
+#tandem-page .tandem-ticket-cta>.tandem-shell{position:relative;padding-block:80px}
+#tandem-page .tandem-ticket-cta h2{max-width:15ch;margin-top:16px;font-size:36px}
+#tandem-page .tandem-ticket-cta .tandem-shell>p:not(.tandem-label){max-width:576px;margin-top:16px;color:rgba(240,237,226,.8);line-height:1.625}
+#tandem-page .tandem-ticket-cta a{display:inline-block;margin-top:36px;padding:16px 32px;background:var(--signal);color:var(--bg);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-closing{position:relative;overflow:hidden;border-top:1px solid var(--rule)}
+#tandem-page .tandem-closing>img{opacity:.4}
+#tandem-page .tandem-closing>div:not(.tandem-shell){position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),rgba(36,35,29,.85),rgba(36,35,29,.6))}
+#tandem-page .tandem-closing>.tandem-shell{position:relative;padding-block:80px}
+#tandem-page .tandem-strike{margin-top:12px!important;color:var(--muted);font-family:"Instrument Serif",Georgia,serif;font-size:24px;font-weight:400;line-height:.94;letter-spacing:-.02em;text-decoration:line-through}
+#tandem-page .tandem-closing h2{max-width:896px;margin-top:32px;font-size:36px}
+#tandem-page .tandem-closing-lockup{display:grid;gap:24px;align-items:end;margin-top:64px;padding-top:32px;border-top:1px solid var(--rule)}
+#tandem-page .tandem-closing-lockup>p:first-child{font-size:60px}
+#tandem-page .tandem-closing-lockup>p:last-child{font-family:"Instrument Serif",Georgia,serif;font-size:24px;font-weight:400;line-height:.94;letter-spacing:-.02em}
+#tandem-page .tandem-bridge{display:flex;flex-direction:column;gap:24px;margin-top:64px;padding-top:24px;border-top:1px solid var(--rule)}
+#tandem-page .tandem-bridge-return,#tandem-page .tandem-bridge label,#tandem-page .tandem-bridge button{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-bridge-mark{align-self:center;display:block;width:28px;opacity:.55;transition:opacity .2s ease}
+#tandem-page .tandem-bridge-mark img{width:100%;height:auto}
+#tandem-page .tandem-bridge-mark:hover,#tandem-page .tandem-bridge-mark:focus-visible{opacity:1}
+#tandem-page .tandem-bridge-mark:focus-visible{outline:1px solid var(--signal);outline-offset:5px}
+#tandem-page .tandem-bridge form{width:min(100%,400px)}
+#tandem-page .tandem-bridge label{display:block;margin-bottom:10px;color:var(--muted)}
+#tandem-page .tandem-bridge form>div{display:flex;border-bottom:1px solid var(--signal)}
+#tandem-page .tandem-bridge input[type=email]{width:100%;padding-block:10px;border:0;outline:0;background:transparent;color:var(--fg);font-family:"DM Sans",system-ui,sans-serif;font-size:16px}
+#tandem-page .tandem-bridge button{border:0;background:transparent;color:var(--signal);cursor:pointer}
+#tandem-page .tandem-honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}
+#tandem-page .tandem-form-status{min-height:20px;margin-top:8px!important;color:var(--signal);font-size:13px}
+@keyframes tandem-ticker{to{transform:translateX(-50%)}}
+@media (min-width:768px){#tandem-page .tandem-shell{padding-inline:40px}#tandem-page .tandem-nav{padding-inline:max(40px,calc((100vw - 1280px)/2 + 40px))}#tandem-page .tandem-hero-cue{right:40px}#tandem-page .tandem-hero-copy{padding-bottom:80px}#tandem-page h1{font-size:208px}#tandem-page .tandem-hero-intro{grid-template-columns:1.2fr 1fr;align-items:end}#tandem-page .tandem-hero-intro .tandem-display{font-size:48px}#tandem-page .tandem-section{padding:112px 40px}#tandem-page .tandem-two{grid-template-columns:.9fr 1.1fr}#tandem-page .tandem-two h2{font-size:72px}#tandem-page .tandem-number-list li{font-size:32px;line-height:1.375}#tandem-page .tandem-crowd{flex-direction:row;align-items:center}#tandem-page .tandem-crowd img{height:256px}#tandem-page .tandem-crowd p{font-size:30px}#tandem-page .tandem-principle-grid{grid-template-columns:1.15fr 1fr;gap:48px}#tandem-page .tandem-principle-grid h2{font-size:60px;line-height:1.25}#tandem-page .tandem-pairs li{font-size:36px}#tandem-page .tandem-fullbleed>.tandem-shell{padding-block:96px}#tandem-page .tandem-fullbleed h2{font-size:60px}#tandem-page .tandem-narrow-title{font-size:48px}#tandem-page .tandem-tracks{grid-template-columns:repeat(2,1fr)}#tandem-page .tandem-tracks h3{font-size:36px}#tandem-page .tandem-tracks article>p{font-size:20px}#tandem-page .tandem-experience{grid-template-columns:repeat(2,1fr)}#tandem-page .tandem-stage-grid{grid-template-columns:1fr 1fr}#tandem-page .tandem-speakers{grid-template-columns:1fr 1.2fr}#tandem-page .tandem-speakers h3{font-size:36px}#tandem-page .tandem-speakers ul{grid-template-columns:1fr 1fr;column-gap:40px}#tandem-page .tandem-speakers li{font-size:20px}#tandem-page .tandem-agenda-head,#tandem-page .tandem-agenda>div{grid-template-columns:112px 1fr 1fr}#tandem-page .tandem-ticket-cta>.tandem-shell,#tandem-page .tandem-closing>.tandem-shell{padding-block:112px}#tandem-page .tandem-ticket-cta h2{font-size:60px}#tandem-page .tandem-strike{font-size:30px}#tandem-page .tandem-closing h2{font-size:72px}#tandem-page .tandem-closing-lockup{grid-template-columns:1fr 1fr}#tandem-page .tandem-closing-lockup>p:first-child{font-size:96px}#tandem-page .tandem-closing-lockup>p:last-child{font-size:30px}#tandem-page .tandem-bridge{flex-direction:row;align-items:center;justify-content:space-between;gap:40px}}
+@media (min-width:768px){#tandem-page .tandem-bridge{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:40px}#tandem-page .tandem-bridge form{justify-self:end}}
+@media (min-width:1024px){#tandem-page .tandem-nav-links{display:flex}#tandem-page .tandem-tracks{grid-template-columns:repeat(3,1fr)}#tandem-page .tandem-experience{grid-template-columns:repeat(4,1fr)}#tandem-page #agenda .tandem-agenda-head,#tandem-page #agenda .tandem-agenda>div{grid-template-columns:1fr 1fr}}
+@media (max-width:1023px){#tandem-page .tandem-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 16px;padding:10px 16px}#tandem-page .tandem-wordmark{display:inline-flex;align-items:center;min-height:44px}#tandem-page .tandem-wordmark:focus-visible,#tandem-page .tandem-ticket:focus-visible,#tandem-page .tandem-nav-toggle:focus-visible{outline:2px solid var(--signal);outline-offset:3px}#tandem-page .tandem-nav-toggle{display:flex;position:relative;align-items:center;justify-content:center;flex-direction:column;width:44px;min-height:44px;gap:5px;padding:0;border:1px solid var(--signal);background:transparent;color:var(--signal);cursor:pointer}#tandem-page .tandem-nav-toggle span{display:block;width:20px;height:1px;background:currentColor;transition:transform .2s ease,opacity .2s ease}#tandem-page .tandem-nav--open .tandem-nav-toggle span:first-child{transform:translateY(6px) rotate(45deg)}#tandem-page .tandem-nav--open .tandem-nav-toggle span:nth-child(2){opacity:0}#tandem-page .tandem-nav--open .tandem-nav-toggle span:last-child{transform:translateY(-6px) rotate(-45deg)}#tandem-page .tandem-nav-panel{display:none;grid-column:1/-1;gap:8px;padding-block:12px 4px;border-top:1px solid var(--rule)}#tandem-page .tandem-nav--open .tandem-nav-panel{display:grid}#tandem-page .tandem-nav-links{display:grid;gap:2px;color:var(--muted)}#tandem-page .tandem-nav-links a,#tandem-page .tandem-ticket{display:flex;align-items:center;min-height:44px;padding:12px}#tandem-page .tandem-nav-links a{border-bottom:1px solid var(--rule)}#tandem-page .tandem-nav-links a:hover{color:var(--signal)}#tandem-page .tandem-ticket{justify-content:center;border:1px solid var(--signal)}#tandem-page .tandem-hero-return{top:24px;right:16px;min-height:44px;font-size:11px;letter-spacing:.16em;white-space:nowrap}#tandem-page .tandem-agenda-head{display:none}#tandem-page .tandem-agenda>div{gap:12px;padding-block:20px}#tandem-page .tandem-agenda p{min-width:0}#tandem-page .tandem-agenda p::before{display:block;margin-bottom:6px;font-family:var(--tandem-kicker-font);font-size:11px;line-height:1.25;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}#tandem-page .tandem-agenda p:nth-of-type(1)::before{content:"The Common"}#tandem-page .tandem-agenda p:nth-of-type(2)::before{content:"The Tandem Room"}#tandem-page .tandem-bridge-return{display:inline-flex;align-items:center;min-height:44px}#tandem-page .tandem-bridge-mark{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;padding:8px}#tandem-page .tandem-bridge form>div{align-items:stretch}#tandem-page .tandem-bridge input[type=email]{min-width:0;min-height:44px}#tandem-page .tandem-bridge button{flex:none;min-height:44px;padding-inline:12px}}
+@media (max-width:520px){#tandem-page .tandem-promo .promo-extra{display:none}#tandem-page .tandem-ticket{padding-inline:10px}#tandem-page .tandem-hero-cue{display:none}}
+@media (prefers-reduced-motion:reduce){#tandem-page .tandem-ticker>div{animation:none}}
+@media (min-width:768px){#tandem-page .tandem-hero-return{right:40px}}
+@media (max-width:520px){#tandem-page .tandem-hero-return{gap:6px}#tandem-page .tandem-hero-return img{width:18px}}
