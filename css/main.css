@@ -914,13 +914,16 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 0.85rem;
   color: var(--lavender);
   font-family: var(--font-headline);
-  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.55rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.015em;
 }
 
 .program .event-hook a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
