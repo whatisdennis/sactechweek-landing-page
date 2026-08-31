@@ -446,6 +446,12 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 1rem;
 }
 
+.nav-toggle { display: none; }
+
+/* The panel disappears from desktop layout so its original children retain
+   their exact grid positions. */
+.stw-nav-panel { display: contents; }
+
 .brand-mark,
 .nav-links,
 .connect-btn {
@@ -1762,20 +1768,111 @@ img { max-width: 100%; height: auto; display: block; }
   .bottom-nav { padding: 0.85rem 1rem 1rem; }
 
   .bottom-nav-inner {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.75rem;
   }
 
   .brand-mark { font-size: 0.85rem; }
 
-  .nav-links {
+  /* Keep the existing links available when JavaScript is unavailable. */
+  .stw-nav-panel { display: contents; }
+
+  .bottom-nav.nav-enhanced .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    gap: 5px;
+    padding: 0;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--lavender);
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 180ms var(--ease), opacity 180ms var(--ease);
+  }
+
+  .nav-toggle:focus-visible,
+  .bottom-nav.nav-enhanced .stw-nav-panel a:focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: 3px;
+  }
+
+  .bottom-nav--open .nav-toggle span:first-child { transform: translateY(6px) rotate(45deg); }
+  .bottom-nav--open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .bottom-nav--open .nav-toggle span:last-child { transform: translateY(-6px) rotate(-45deg); }
+
+  .bottom-nav.nav-enhanced .stw-nav-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100vw;
+    min-width: 0;
+    border-top: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(11, 11, 20, 0.86), rgba(11, 11, 20, 0.97));
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.5rem);
+    pointer-events: none;
+    transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+  }
+
+  .bottom-nav.nav-enhanced.bottom-nav--open .stw-nav-panel {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .bottom-nav.nav-enhanced .nav-links {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    justify-content: stretch;
+    font-size: 0.8rem;
+  }
+
+  .bottom-nav.nav-enhanced .stw-nav-panel a {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.85rem 1rem;
+    overflow-wrap: anywhere;
+    color: var(--white);
+  }
+
+  .bottom-nav.nav-enhanced .nav-links a {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bottom-nav.nav-enhanced .connect-btn {
+    grid-column: auto;
+    justify-self: stretch;
+    padding: 0.85rem 1rem;
+  }
+
+  /* Legacy mobile layout remains the no-JavaScript fallback. */
+  .bottom-nav:not(.nav-enhanced) .nav-links {
     justify-content: flex-end;
     gap: 1rem 1.25rem;
     font-size: 0.72rem;
     flex-wrap: wrap;
   }
 
-  .connect-btn {
+  .bottom-nav:not(.nav-enhanced) .connect-btn {
     grid-column: 1 / -1;
     justify-self: stretch;
     padding: 0.8rem 1rem;
@@ -2196,6 +2293,7 @@ img { max-width: 100%; height: auto; display: block; }
   .event:hover h3 { transform: none; }
 
   .connect-btn,
+  .nav-toggle span,
   .btn-ink,
   .btn-white,
   .btn-disabled,
@@ -2207,4 +2305,6 @@ img { max-width: 100%; height: auto; display: block; }
   .rabbit-hole-link:hover { transform: none; }
 
   .toast { transition: opacity 200ms linear; transform: none; }
+
+  .bottom-nav.nav-enhanced .stw-nav-panel { transition: none; }
 }

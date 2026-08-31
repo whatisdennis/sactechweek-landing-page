@@ -4,6 +4,56 @@
  */
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// --- Mobile bottom navigation ---------------------------------------
+// Links remain in the document and usable without JavaScript. This only
+// enhances the home-page navigation after all required controls are present.
+(() => {
+  const nav = document.querySelector(".bottom-nav");
+  const toggle = nav?.querySelector(".nav-toggle");
+  const panel = nav?.querySelector("#stw-menu");
+
+  if (!nav || !toggle || !panel) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 900px)");
+  const setOpen = (open, { returnFocus = false } = {}) => {
+    nav.classList.toggle("bottom-nav--open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+
+    if (open) {
+      panel.querySelector("a[href]")?.focus();
+    } else if (returnFocus) {
+      toggle.focus();
+    }
+  };
+
+  nav.classList.add("nav-enhanced");
+
+  toggle.addEventListener("click", () => setOpen(!nav.classList.contains("bottom-nav--open")));
+
+  panel.querySelectorAll("a[href]").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("bottom-nav--open")) {
+      setOpen(false, { returnFocus: true });
+    }
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!nav.contains(event.target)) setOpen(false);
+  });
+
+  document.addEventListener("focusin", (event) => {
+    if (!nav.contains(event.target)) setOpen(false);
+  });
+
+  mobileQuery.addEventListener("change", (event) => {
+    if (!event.matches) setOpen(false);
+  });
+})();
+
 // --- Scroll reveals -------------------------------------------------
 // Content is visible by default. We only arm the hidden state here,
 // right before observing, so no-JS / reduced-motion / headless
