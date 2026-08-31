@@ -10,5 +10,17 @@
       "source": "/newsletter-signup",
       "destination": "/api/newsletter-signup"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/calendar",
+      "destination": "https://stw-app-sandy.vercel.app",
+      "permanent": false
+    },
+    {
+      "source": "/calendar/:path*",
+      "destination": "https://stw-app-sandy.vercel.app/:path*",
+      "permanent": false
+    }
   ]
 }
