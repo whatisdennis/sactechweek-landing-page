@@ -636,6 +636,13 @@ img { max-width: 100%; height: auto; display: block; }
 .partner-ticker-group .logo-ai-for-good { height: clamp(1.3rem, 2vw, 1.75rem); }
 .partner-ticker-group .logo-aws-sheet { filter: none; }
 
+/* Bump up the harder-to-read marks so they match the others. */
+.partner-ticker-group .logo-ai-for-good { height: clamp(2.5rem, 3.6vw, 3.2rem); }
+.partner-ticker-group img[src*="sponsor-ai-in-real-life"],
+.partner-ticker-group img[src*="sponsor-ai-collective"],
+.partner-ticker-group img[src*="suite-fleet"] { height: clamp(2.5rem, 3.6vw, 3.2rem); }
+.partner-ticker-group img[src*="sponsor-carlsen-center"] { height: clamp(3rem, 4.5vw, 4rem); }
+
 .partner-ticker-group > a:hover img,
 .partner-ticker-group > a:focus-visible img {
   filter: none;
@@ -973,46 +980,68 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
   min-height: 3rem;
   padding: 0.8rem 1.25rem;
-  color: var(--white);
+  color: #24231d;
   font-family: var(--font-headline);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-align: center;
   text-transform: uppercase;
-  background: var(--ink-on-purple);
-  border: 3px solid var(--ink-on-purple);
+  background: #d3f24c;
+  border: 3px solid #d3f24c;
   border-radius: var(--radius-sm);
   transition: background var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
 
-.program .event--summit .core-event-btn:hover { transform: translateY(-2px); }
+.program .event--summit .core-event-btn:hover { transform: translateY(-2px); background: #f0ede2; border-color: #f0ede2; }
 
 .program .event--summit .core-event-btn--outline {
-  color: var(--white);
+  color: #f0ede2;
   background: transparent;
-  border-color: var(--white);
+  border-color: rgba(211, 242, 76, 0.78);
 }
 
 .program .event--summit .core-event-btn--outline:hover,
-.program .event--summit .core-event-btn--outline:focus-visible { background: rgba(255, 255, 255, 0.12); }
+.program .event--summit .core-event-btn--outline:focus-visible { background: rgba(211, 242, 76, 0.14); border-color: #d3f24c; }
+
+.program .event--summit .core-event-btn:focus-visible {
+  outline: 2px solid #d3f24c;
+  outline-offset: 4px;
+}
 
 @media (min-width: 601px) {
   .program .event--summit .core-event-btn--outline { margin-left: 0.5rem; }
 }
 
 .program .event--summit {
-  margin: clamp(1rem, 3vh, 2rem) calc(-1 * clamp(1rem, 3vw, 3rem)) 0;
+  --tandem-surface: #24231d;
+  --tandem-signal: #d3f24c;
+  margin: clamp(1rem, 3vh, 2rem) 0 0;
   padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 3vw, 3rem);
-  background: var(--electric);
-  border: 3px solid var(--lavender);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--tandem-surface);
+  border: 1px solid rgba(211, 242, 76, 0.48);
+  box-shadow: inset 0 0 0 1px rgba(240, 237, 226, 0.05);
 }
 
-.program .event--summit h3 { color: var(--ink-on-purple); font-size: clamp(2.8rem, 7vw, 6.5rem); }
+.program .event--summit > * { position: relative; z-index: 1; }
+
+.program .event--summit .tandem-summit-smoke {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.program .event--summit h3 { color: #f0ede2; font-size: clamp(2.8rem, 7vw, 6.5rem); }
 .program .event--summit .event-meta,
-.program .event--summit .event-hook { color: var(--white); }
+.program .event--summit .event-hook { color: var(--tandem-signal); }
 .program .event--summit .event-meta span:nth-child(3),
-.program .event--summit .event-description { color: rgba(244, 245, 251, 0.84); }
+.program .event--summit .event-description { color: rgba(240, 237, 226, 0.82); }
 
 @media (max-width: 600px) {
   .core-event-actions { display: grid; grid-template-columns: 1fr; }
@@ -1284,6 +1313,13 @@ img { max-width: 100%; height: auto; display: block; }
   height: clamp(1.625rem, 2.8125vw, 2.375rem);
   max-width: min(100%, 15rem);
 }
+
+/* Bump up the harder-to-read marks in the footer strip too. */
+.logo-strip .logo-ai-for-good { height: clamp(2.75rem, 4.25vw, 3.5rem); }
+.logo-strip img[src*="sponsor-ai-in-real-life"],
+.logo-strip img[src*="sponsor-ai-collective"],
+.logo-strip img[src*="suite-fleet"] { height: clamp(2.75rem, 4.25vw, 3.5rem); }
+.logo-strip img[src*="sponsor-carlsen-center"] { height: clamp(3.25rem, 5vw, 4.25rem); }
 
 /* This supplied-sheet crop intentionally retains AWS's purple wordmark. */
 .logo-strip .logo-aws-sheet { filter: none; }
