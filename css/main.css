@@ -634,6 +634,11 @@ img { max-width: 100%; height: auto; display: block; }
 .partner-ticker-group .logo-hexwave { height: clamp(1.2rem, 1.75vw, 1.55rem); }
 .partner-ticker-group .logo-california-capital,
 .partner-ticker-group .logo-ai-for-good { height: clamp(1.3rem, 2vw, 1.75rem); }
+.partner-ticker-group .logo-growth-factory { height: clamp(1.7rem, 2.5vw, 2.2rem); }
+.partner-ticker-group .logo-frequency-coworking {
+  height: clamp(2.1rem, 3vw, 2.75rem);
+  max-width: min(42vw, 11rem);
+}
 .partner-ticker-group .logo-aws-sheet { filter: none; }
 
 /* Bump up the harder-to-read marks so they match the others. */
@@ -844,6 +849,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .week-cal-event-link:hover { color: var(--ink-on-purple); }
 .week-cal-event-link:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+.week-cal-event-link--soon {
+  color: rgba(244, 245, 251, 0.5);
+  cursor: default;
+  text-decoration: none;
+}
 
 .why,
 .program,
@@ -1314,6 +1324,16 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: min(100%, 15rem);
 }
 
+.logo-strip .logo-growth-factory {
+  height: clamp(1.75rem, 2.75vw, 2.25rem);
+  max-width: min(100%, 16rem);
+}
+
+.logo-strip .logo-frequency-coworking {
+  height: clamp(2.25rem, 3.5vw, 3rem);
+  max-width: min(100%, 16rem);
+}
+
 /* Bump up the harder-to-read marks in the footer strip too. */
 .logo-strip .logo-ai-for-good { height: clamp(2.75rem, 4.25vw, 3.5rem); }
 .logo-strip img[src*="sponsor-ai-in-real-life"],
@@ -1326,12 +1346,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
-/* At full desktop width, hold the fourteen partner marks in two balanced rows.
+/* At full desktop width, hold the sixteen partner marks in two balanced rows.
    The flex strip remains the responsive fallback below this breakpoint. */
 @media (min-width: 1100px) {
   .logo-strip {
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
     column-gap: clamp(1.5rem, 3vw, 3rem);
@@ -1555,7 +1575,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .lane-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 

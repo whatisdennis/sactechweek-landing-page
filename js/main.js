@@ -311,7 +311,7 @@ document.querySelectorAll("[data-newsletter-form]").forEach((newsletterForm) => 
 // --- Home-page live calendar -----------------------------------------
 const weekEvents = [
   { date: "2026-10-19", day: "Monday, October 19", time: "9:00 AM–12:00 PM", title: "State of Innovaiton Kickoff Breakfast - STW", url: "https://luma.com/j9jspm0p" },
-  { date: "2026-10-19", day: "Monday, October 19", time: "12:00 PM–2:00 PM PDT", title: "Hack for Humanity - AI Collective", description: "A collaborative hackathon exploring AI for social good, hosted by The AI Collective.", url: "TBD" },
+  { date: "2026-10-19", day: "Monday, October 19", time: "12:00 PM–2:00 PM PDT", title: "Hack for Humanity - AI Collective", description: "A collaborative hackathon exploring AI for social good, hosted by The AI Collective.", action: "coming-soon" },
   { date: "2026-10-19", day: "Monday, October 19", time: "6:00 PM–8:00 PM PDT", title: "Woman in Tech Panel - Woman Business Center", url: "https://luma.com/fp7x1by6" },
   { date: "2026-10-20", day: "Tuesday, October 20", time: "12:00 PM–2:00 PM PDT", title: "N8N at Noon - N8N", url: "https://luma.com/118fsgex" },
   { date: "2026-10-20", day: "Tuesday, October 20", time: "3:00–6:00 PM", title: "AI Programming Bootcamp - Playful Programming", url: "https://luma.com/d184kjg7" },
@@ -327,6 +327,7 @@ const weekEvents = [
   { date: "2026-10-22", day: "Thursday, October 22", time: "5:00–8:00 PM", title: "AI Town Hall - AI for Good SVP", description: "Talk on the Creative Economy Entrepreneurship Initiative with Sacramento Venture Philanthropy’s AI for Good.", url: "https://luma.com/x00pc859" },
   { date: "2026-10-22", day: "Thursday, October 22", time: "6:00 PM–8:00 PM PDT", title: "Simply Lovable - Craftsman AI", url: "https://luma.com/bnm4g7rg" },
   { date: "2026-10-22", day: "Thursday, October 22", time: "6:00–9:00 PM", title: "SacTech Social - SacTech Inc.", description: "Inclusive networking social for technology professionals to connect, collaborate, hire, and find jobs.", url: "https://luma.com/s0xemi9e" },
+  { date: "2026-10-23", day: "Friday, October 23", time: "4:00 PM–7:00 PM PDT", title: "GFV Open House - Growth Factory Ventures", url: "https://luma.com/growth-e07z" },
   { date: "2026-10-23", day: "Friday, October 23", time: "6:30–9:00 PM", title: "Amazon Pitch Competition - AWS", url: "https://luma.com/dtzaajd3" },
   { date: "2026-10-24", day: "Saturday, October 24", time: "9:00 AM–5:00 PM", title: "Tandem Summit - STW", description: "Tandem Summit is SacTech Week’s capstone event: a gathering for the people building, questioning, experiencing, and imagining the future of technology.", url: "https://luma.com/qerdn7wo" },
 ];
@@ -344,14 +345,21 @@ document.querySelectorAll("[data-calendar-date]").forEach((list) => {
 
     item.append(title);
 
-    const link = document.createElement("a");
-    link.className = "week-cal-event-link";
-    link.href = event.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.setAttribute("aria-label", `View ${event.title} (opens in a new tab)`);
-    link.textContent = event.url.includes("luma.com") ? "View event on Luma ↗" : "View event details ↗";
-    item.append(link);
+    if (event.action === "coming-soon") {
+      const status = document.createElement("span");
+      status.className = "week-cal-event-link week-cal-event-link--soon";
+      status.textContent = "Details Coming Soon";
+      item.append(status);
+    } else {
+      const link = document.createElement("a");
+      link.className = "week-cal-event-link";
+      link.href = event.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", `View ${event.title} (opens in a new tab)`);
+      link.textContent = event.url.includes("luma.com") ? "View event on Luma ↗" : "View event details ↗";
+      item.append(link);
+    }
     list.append(item);
   });
 });

@@ -211,13 +211,21 @@
   <nav class="bottom-nav" aria-label="Primary">
     <div class="bottom-nav-inner">
       <a class="brand-mark" href="index.html">STW_</a>
-      <div class="nav-links">
-        <a href="#schedule">Schedule</a>
-        <a href="#host-event">Host Event</a>
-        <a href="consortium.html" aria-current="page">Consortium</a>
-        <a href="tandem.html">Tandem Summit</a>
+      <button class="nav-toggle" type="button" aria-controls="stw-menu" aria-expanded="false" aria-label="Open navigation menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <div class="stw-nav-panel" id="stw-menu">
+        <div class="nav-links">
+          <a href="index.html#schedule">Calendar</a>
+          <a href="https://app.sactechweek.org" target="_blank" rel="noopener noreferrer" aria-label="STW App (opens in a new tab)">STW App</a>
+          <a href="https://forms.gle/QdtCGPudH7ByVttSA" target="_blank" rel="noopener noreferrer" aria-label="Host Event (opens in a new tab)">Host Event</a>
+          <a href="consortium.html" aria-current="page">Consortium</a>
+          <a href="tandem.html">Tandem Summit</a>
+        </div>
+        <a class="connect-btn" href="participate.html">Participate</a>
       </div>
-      <a class="connect-btn" href="participate.html">Participate</a>
     </div>
   </nav>
 
