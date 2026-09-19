@@ -639,6 +639,10 @@ img { max-width: 100%; height: auto; display: block; }
   height: clamp(2.1rem, 3vw, 2.75rem);
   max-width: min(42vw, 11rem);
 }
+.partner-ticker-group .logo-humanbulb {
+  height: clamp(4.5rem, 6vw, 5rem);
+  max-width: min(30vw, 7.5rem);
+}
 .partner-ticker-group .logo-aws-sheet { filter: none; }
 
 /* Bump up the harder-to-read marks so they match the others. */
@@ -1334,6 +1338,11 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: min(100%, 16rem);
 }
 
+.logo-strip .logo-humanbulb {
+  height: clamp(3.25rem, 5vw, 4rem);
+  max-width: min(100%, 8rem);
+}
+
 /* Bump up the harder-to-read marks in the footer strip too. */
 .logo-strip .logo-ai-for-good { height: clamp(2.75rem, 4.25vw, 3.5rem); }
 .logo-strip img[src*="sponsor-ai-in-real-life"],
@@ -1346,12 +1355,36 @@ img { max-width: 100%; height: auto; display: block; }
 
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
-/* At full desktop width, hold the sixteen partner marks in two balanced rows.
+/* At tablet widths, hold the seventeen marks in three balanced rows. */
+@media (min-width: 700px) and (max-width: 1099px) {
+  .logo-strip {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+    row-gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .logo-strip > a,
+  .logo-strip > .logo-strip-mark {
+    min-width: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo-strip img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* At full desktop width, hold the seventeen partner marks in two balanced rows.
    The flex strip remains the responsive fallback below this breakpoint. */
 @media (min-width: 1100px) {
   .logo-strip {
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(9, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
     column-gap: clamp(1.5rem, 3vw, 3rem);
