@@ -645,6 +645,18 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .partner-ticker-group .logo-aws-sheet { filter: none; }
 
+/* New marks: give the square and multi-line lockups enough presence; cap the wide n8n wordmark. */
+.partner-ticker-group .logo-granite-city { height: clamp(2.35rem, 3.2vw, 2.8rem); }
+.partner-ticker-group .logo-hunu-publishing { height: clamp(1.85rem, 2.5vw, 2.2rem); }
+.partner-ticker-group .logo-n8n {
+  width: min(42vw, 8.5rem);
+  height: auto;
+}
+.partner-ticker-group .logo-sacramento-developer-collective {
+  height: clamp(2rem, 2.75vw, 2.4rem);
+  max-width: min(42vw, 9rem);
+}
+
 /* Bump up the harder-to-read marks so they match the others. */
 .partner-ticker-group .logo-ai-for-good { height: clamp(2.5rem, 3.6vw, 3.2rem); }
 .partner-ticker-group img[src*="sponsor-ai-in-real-life"],
@@ -757,8 +769,86 @@ img { max-width: 100%; height: auto; display: block; }
   margin: calc(-1 * clamp(1rem, 3vh, 2.5rem)) 0 clamp(2.4rem, 6vh, 4rem);
 }
 
-/* --- Week calendar --- */
-.week-cal { margin: 0 0 clamp(3rem, 7vh, 5rem); }
+/* --- STW Calendar web-app promo --- */
+.calendar-app-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.58fr);
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 9rem);
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.calendar-app-copy { min-width: 0; }
+.calendar-app-copy .poster-title { margin-bottom: clamp(1.5rem, 4vh, 2.75rem); }
+.calendar-app-copy .poster-lede { margin: 0 0 clamp(2rem, 5vh, 3.5rem); }
+
+.calendar-app-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.1rem;
+  border: 2px solid var(--ink-on-purple);
+  color: var(--white);
+  background: var(--ink-on-purple);
+  font-family: var(--font-pixel);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.calendar-app-cta:hover {
+  transform: translateY(-2px);
+  color: var(--ink-on-purple);
+  background: var(--white);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.34);
+}
+
+.calendar-app-cta:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 4px;
+}
+
+.calendar-app-visual {
+  position: relative;
+  z-index: 0;
+  width: min(100%, 27rem);
+  padding-inline: clamp(0.5rem, 2vw, 1rem);
+  justify-self: center;
+  isolation: isolate;
+}
+
+.calendar-app-visual::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  /* Keep the rotated dither halo inside the visual's own box. */
+  inset: 11% clamp(2rem, 5vw, 4rem) 6%;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.55) 1.15px, transparent 1.4px);
+  background-size: 7px 7px;
+  border-radius: 46% 54% 52% 48%;
+  opacity: 0.58;
+  transform: rotate(-7deg);
+}
+
+.calendar-app-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  animation: calendar-app-float 5.5s var(--ease) infinite alternate;
+  will-change: transform;
+}
+
+@keyframes calendar-app-float {
+  from { transform: translateY(-0.3rem); }
+  to { transform: translateY(0.55rem); }
+}
 
 .core-event-btn {
   display: inline-block;
@@ -789,74 +879,6 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid rgba(199, 168, 255, 0.2);
   cursor: not-allowed;
   pointer-events: none;
-}
-
-.poster-divider {
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  margin: clamp(2rem, 5vh, 3.5rem) 0 0;
-}
-
-.week-cal-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.week-cal-day { min-width: 0; padding: 1.4rem 1rem 1.5rem; }
-.week-cal-day + .week-cal-day { border-left: 1px solid rgba(0, 0, 0, 0.15); }
-
-.week-cal-day-title {
-  margin: 0 0 1.2rem;
-  color: var(--ink-on-purple);
-  font-family: var(--font-pixel);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.week-cal-day-title span { color: var(--white); }
-.week-cal-events { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
-
-.week-cal-event {
-  position: relative;
-  padding: 0.65rem 0.7rem 0.75rem 1.1rem;
-  border-radius: var(--radius-sm);
-  background: rgba(11, 11, 20, 0.08);
-}
-
-.week-cal-event::before {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: 0.4rem;
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 50%;
-  background: var(--ink-on-purple);
-}
-
-.week-cal-event-name { display: block; color: var(--white); font-weight: 700; font-size: 0.95rem; line-height: 1.25; }
-.week-cal-event-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 3rem;
-  margin-top: 0.45rem;
-  padding: 0.5rem 0.6rem;
-  color: var(--white);
-  font-family: var(--font-pixel);
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-.week-cal-event-link:hover { color: var(--ink-on-purple); }
-.week-cal-event-link:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
-.week-cal-event-link--soon {
-  color: rgba(244, 245, 251, 0.5);
-  cursor: default;
-  text-decoration: none;
 }
 
 .why,
@@ -1343,6 +1365,18 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: min(100%, 8rem);
 }
 
+/* Keep the new square, multi-line, and wide lockups legible in every strip layout. */
+.logo-strip .logo-granite-city { height: clamp(3rem, 4.35vw, 3.9rem); }
+.logo-strip .logo-hunu-publishing { height: clamp(2.125rem, 3vw, 2.75rem); }
+.logo-strip .logo-n8n {
+  width: min(100%, 10rem);
+  height: auto;
+}
+.logo-strip .logo-sacramento-developer-collective {
+  height: clamp(2.4rem, 3.5vw, 3rem);
+  max-width: min(100%, 12rem);
+}
+
 /* Bump up the harder-to-read marks in the footer strip too. */
 .logo-strip .logo-ai-for-good { height: clamp(2.75rem, 4.25vw, 3.5rem); }
 .logo-strip img[src*="sponsor-ai-in-real-life"],
@@ -1350,12 +1384,12 @@ img { max-width: 100%; height: auto; display: block; }
 .logo-strip img[src*="suite-fleet"] { height: clamp(2.75rem, 4.25vw, 3.5rem); }
 .logo-strip img[src*="sponsor-carlsen-center"] { height: clamp(3.25rem, 5vw, 4.25rem); }
 
-/* This supplied-sheet crop intentionally retains AWS's purple wordmark. */
+/* This supplied-sheet crop uses the normalized white mark. */
 .logo-strip .logo-aws-sheet { filter: none; }
 
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
-/* At tablet widths, hold the seventeen marks in three balanced rows. */
+/* At tablet widths, hold the twenty-one marks in balanced rows. */
 @media (min-width: 700px) and (max-width: 1099px) {
   .logo-strip {
     display: grid;
@@ -1379,7 +1413,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
-/* At full desktop width, hold the seventeen partner marks in two balanced rows.
+/* At full desktop width, hold the twenty-one partner marks in balanced rows.
    The flex strip remains the responsive fallback below this breakpoint. */
 @media (min-width: 1100px) {
   .logo-strip {
@@ -1818,12 +1852,6 @@ img { max-width: 100%; height: auto; display: block; }
 /* ------------------------------------------------------------
    Responsive
    ------------------------------------------------------------ */
-@media (max-width: 1100px) {
-  .week-cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .week-cal-day:nth-child(4) { border-left: 0; }
-  .week-cal-day:nth-child(n + 4) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
-}
-
 @media (max-width: 900px) {
   .lane-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
@@ -1973,9 +2001,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   .poster::before { background-position: 160% 4%; opacity: 0.12; }
 
-  .week-cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .week-cal-day:nth-child(4) { border-left: 0; }
-  .week-cal-day:nth-child(n + 4) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  .calendar-app-promo { gap: clamp(2rem, 6vw, 4rem); }
 }
 
 /* Keep the hero CTA and scroll cue clear of the desktop fixed nav. */
@@ -2325,9 +2351,12 @@ img { max-width: 100%; height: auto; display: block; }
 
   .lane-card { min-height: 0; }
 
-  .week-cal-grid { grid-template-columns: 1fr; }
-  .week-cal-day:nth-child(n) { border-top: 1px solid rgba(0, 0, 0, 0.15); border-left: 0; }
-  .week-cal-day:nth-child(1) { border-top: 0; }
+  .calendar-app-promo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .calendar-app-visual { width: min(100%, 20rem); }
 
   .hero-newsletter-fields { grid-template-columns: 1fr; }
   .hero-newsletter button { width: 100%; }
@@ -2339,12 +2368,6 @@ img { max-width: 100%; height: auto; display: block; }
   .lane-card p { margin-bottom: 2rem; }
 
   .annual-list { grid-template-columns: 1fr; }
-
-  .week-cal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .week-cal-day:nth-child(n) { border-top: 1px solid rgba(0, 0, 0, 0.15); }
-  .week-cal-day:nth-child(1),
-  .week-cal-day:nth-child(2) { border-top: 0; }
-  .week-cal-day:nth-child(odd) { border-left: 0; }
 
   .toast-region {
     top: auto;
@@ -2365,6 +2388,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   .grain { animation: none; }
   .logo-tilt { animation: none; }
+  .calendar-app-visual img { animation: none; }
   .hero-cue { animation: none; opacity: 0.7; }
   .partner-ticker { overflow: visible; }
   .partner-ticker-track { width: 100%; animation: none; }
