@@ -281,7 +281,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-sponsor--bosch img { filter: brightness(0) invert(1); }
 .hero-sponsor--bosch img { width: 176px; }
 .hero-sponsor--aws img,
-.hero-sponsor:not(.hero-sponsor--bosch):not(.hero-sponsor--urbanhive) img { filter: brightness(0) invert(1); }
+.hero-sponsor:not(.hero-sponsor--bosch) img { filter: brightness(0) invert(1); }
 .hero-sponsor--aws { width: auto; }
 .hero-sponsor--aws img { width: auto; height: 100%; }
 .hero-sponsor--aws::after {
@@ -630,7 +630,6 @@ img { max-width: 100%; height: auto; display: block; }
   transition: opacity var(--fast) var(--ease), filter var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
 
-.partner-ticker-group .logo-urbanhive { height: clamp(1.95rem, 2.9vw, 2.6rem); }
 .partner-ticker-group .logo-hexwave { height: clamp(1.2rem, 1.75vw, 1.55rem); }
 .partner-ticker-group .logo-california-capital,
 .partner-ticker-group .logo-ai-for-good { height: clamp(1.3rem, 2vw, 1.75rem); }
@@ -649,13 +648,35 @@ img { max-width: 100%; height: auto; display: block; }
 .partner-ticker-group .logo-granite-city { height: clamp(2.35rem, 3.2vw, 2.8rem); }
 .partner-ticker-group .logo-hunu-publishing { height: clamp(1.85rem, 2.5vw, 2.2rem); }
 .partner-ticker-group .logo-n8n {
-  width: min(42vw, 8.5rem);
+  width: min(34vw, 6.5rem);
   height: auto;
 }
 .partner-ticker-group .logo-sacramento-developer-collective {
   height: clamp(2rem, 2.75vw, 2.4rem);
   max-width: min(42vw, 9rem);
 }
+.partner-ticker-group .logo-napa-academy { height: clamp(3.5rem, 4.75vw, 4rem); }
+.partner-ticker-group .logo-craftsman-ai { height: clamp(1.85rem, 2.5vw, 2.2rem); }
+.partner-ticker-group .logo-misfit,
+.partner-ticker-group .logo-city-of-sacramento,
+.partner-ticker-group .logo-park-talent,
+.partner-ticker-group .logo-relay,
+.partner-ticker-group .logo-skillstacker,
+.partner-ticker-group .logo-smud,
+.partner-ticker-group .logo-koi-studios,
+.partner-ticker-group .logo-ecopress-sacramento,
+.partner-ticker-group .logo-meta,
+.partner-ticker-group .logo-comcast-business,
+.partner-ticker-group .logo-roseville-venturelab {
+  height: clamp(1.5rem, 2.1vw, 1.9rem);
+  max-width: min(42vw, 11rem);
+}
+.partner-ticker-group .logo-rancho-cordova {
+  height: clamp(2rem, 2.8vw, 2.45rem);
+  max-width: min(42vw, 11rem);
+}
+.partner-ticker-group .logo-bosch { height: clamp(2.5rem, 3.5vw, 3rem); }
+.partner-ticker-group .logo-medstart { height: clamp(2.4rem, 3.4vw, 2.9rem); }
 
 /* Bump up the harder-to-read marks so they match the others. */
 .partner-ticker-group .logo-ai-for-good { height: clamp(2.5rem, 3.6vw, 3.2rem); }
@@ -882,20 +903,17 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .why,
-.program,
-.host {
+.program {
   padding: clamp(5.5rem, 13vh, 10rem) var(--gutter);
   border-bottom: 1px solid var(--line);
 }
 
 .why > .zone,
 .program > .zone,
-.host > .zone,
 .city > .zone { display: block; margin: 0 0 1.5rem; }
 
 .why-title,
-.program-title,
-.host-title {
+.program-title {
   margin: 0;
   font-family: var(--font-headline);
   font-size: clamp(2.5rem, 6.6vw, 5.8rem);
@@ -916,8 +934,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .why-copy p,
-.program-lede,
-.host-body {
+.program-lede {
   max-width: var(--measure);
   color: var(--muted);
   font-size: 1.06rem;
@@ -1228,44 +1245,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ------------------------------------------------------------
-   Host an event
-   ------------------------------------------------------------ */
-.host { background: var(--void-2); }
-
-.host-title { max-width: 14ch; }
-
-.host-body {
-  margin: 1.8rem 0;
-}
-
-.host-status {
-  max-width: 56ch;
-  margin: 0 0 2rem;
-  padding: 0.75rem 0 0;
-  color: var(--lavender);
-  border-top: 1px solid var(--line-strong);
-  font-family: var(--font-pixel);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  line-height: 1.55;
-}
-
-.host-link {
-  display: inline-block;
-  padding: 0.95rem 1.25rem;
-  color: var(--signal);
-  background: var(--lavender);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-headline);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
-}
-
-.host-link:hover { transform: translateY(-2px); box-shadow: var(--glow-halo); }
-
-/* ------------------------------------------------------------
    Consortium teaser strip
    ------------------------------------------------------------ */
 .consortium-teaser {
@@ -1338,11 +1317,6 @@ img { max-width: 100%; height: auto; display: block; }
   height: clamp(1.425rem, 2.475vw, 2.0875rem);
 }
 
-/* Urban Hive is the host venue — lead the strip and let it sit ~1.3x larger. */
-.logo-strip .logo-urbanhive {
-  height: clamp(2.4375rem, 4.25vw, 3.625rem);
-}
-
 /* Keep the new extra-wide lockups readable without forcing a narrow viewport wide. */
 .logo-strip .logo-california-capital,
 .logo-strip .logo-ai-for-good {
@@ -1369,12 +1343,51 @@ img { max-width: 100%; height: auto; display: block; }
 .logo-strip .logo-granite-city { height: clamp(3rem, 4.35vw, 3.9rem); }
 .logo-strip .logo-hunu-publishing { height: clamp(2.125rem, 3vw, 2.75rem); }
 .logo-strip .logo-n8n {
-  width: min(100%, 10rem);
+  width: min(100%, 7.5rem);
   height: auto;
 }
 .logo-strip .logo-sacramento-developer-collective {
   height: clamp(2.4rem, 3.5vw, 3rem);
   max-width: min(100%, 12rem);
+}
+.logo-strip .logo-napa-academy { height: clamp(2.75rem, 4vw, 3.5rem); }
+.logo-strip .logo-craftsman-ai { height: clamp(2.125rem, 3vw, 2.75rem); }
+.logo-strip .logo-misfit,
+.logo-strip .logo-city-of-sacramento,
+.logo-strip .logo-park-talent,
+.logo-strip .logo-relay,
+.logo-strip .logo-skillstacker,
+.logo-strip .logo-smud,
+.logo-strip .logo-koi-studios,
+.logo-strip .logo-ecopress-sacramento,
+.logo-strip .logo-meta,
+.logo-strip .logo-comcast-business,
+.logo-strip .logo-roseville-venturelab {
+  height: clamp(1.75rem, 2.6vw, 2.25rem);
+  max-width: min(100%, 11rem);
+}
+.logo-strip .logo-rancho-cordova {
+  height: clamp(2rem, 3.2vw, 2.65rem);
+  max-width: min(100%, 11rem);
+  transform: scale(1.15);
+  transform-origin: center;
+}
+.logo-strip .logo-bosch { height: clamp(3.25rem, 4.75vw, 4rem); }
+.logo-strip .logo-medstart { height: clamp(3rem, 4.5vw, 3.75rem); }
+
+@media (max-width: 699px) {
+  .logo-strip .logo-koi-studios,
+  .logo-strip .logo-ecopress-sacramento,
+  .logo-strip .logo-meta,
+  .logo-strip .logo-comcast-business,
+  .logo-strip .logo-roseville-venturelab {
+    height: clamp(2.25rem, 9vw, 2.75rem);
+    max-width: min(100%, 11rem);
+  }
+
+  .logo-strip .logo-roseville-venturelab { height: clamp(3rem, 12vw, 3.5rem); }
+
+  .logo-strip .logo-medstart { height: clamp(3.5rem, 11vw, 4rem); }
 }
 
 /* Bump up the harder-to-read marks in the footer strip too. */
@@ -1389,7 +1402,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
-/* At tablet widths, hold the twenty-one marks in balanced rows. */
+/* At tablet widths, hold the thirty-six marks in balanced rows. */
 @media (min-width: 700px) and (max-width: 1099px) {
   .logo-strip {
     display: grid;
@@ -1411,9 +1424,10 @@ img { max-width: 100%; height: auto; display: block; }
     max-width: 100%;
     object-fit: contain;
   }
+
 }
 
-/* At full desktop width, hold the twenty-one partner marks in balanced rows.
+/* At full desktop width, hold the thirty-six partner marks in balanced rows.
    The flex strip remains the responsive fallback below this breakpoint. */
 @media (min-width: 1100px) {
   .logo-strip {
@@ -1435,6 +1449,10 @@ img { max-width: 100%; height: auto; display: block; }
   .logo-strip img {
     max-width: 100%;
     object-fit: contain;
+  }
+
+  .logo-strip .logo-n8n {
+    width: min(100%, 5.5rem);
   }
 }
 
@@ -1494,12 +1512,6 @@ img { max-width: 100%; height: auto; display: block; }
 .partner-logo img.partner-logo--raster {
   /* raster wordmark: flatten to a white silhouette to match the SVG set */
   filter: brightness(0) invert(1);
-}
-
-.partner-logo img.partner-logo--urbanhive {
-  /* host venue, leads the list: a tall stacked mark, so give it more height
-     to match the visual weight of the wider wordmarks. */
-  max-height: 4.5rem;
 }
 
 /* Larger marks retain the partner-list width containment while matching the
@@ -1761,7 +1773,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-sponsor--bosch img { width: 8rem; }
-.footer-sponsor--urbanhive img { filter: none; height: 2.3rem; }
 .footer-sponsor--aws { position: relative; }
 .footer-sponsor--aws::after {
   content: "";
