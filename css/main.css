@@ -677,6 +677,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .partner-ticker-group .logo-bosch { height: clamp(2.5rem, 3.5vw, 3rem); }
 .partner-ticker-group .logo-medstart { height: clamp(2.4rem, 3.4vw, 2.9rem); }
+.partner-ticker-group .logo-fyi { height: clamp(1.9rem, 2.7vw, 2.35rem); }
 
 /* Bump up the harder-to-read marks so they match the others. */
 .partner-ticker-group .logo-ai-for-good { height: clamp(2.5rem, 3.6vw, 3.2rem); }
@@ -1374,6 +1375,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .logo-strip .logo-bosch { height: clamp(3.25rem, 4.75vw, 4rem); }
 .logo-strip .logo-medstart { height: clamp(3rem, 4.5vw, 3.75rem); }
+.logo-strip .logo-fyi { height: clamp(2.25rem, 3.25vw, 2.75rem); }
 
 @media (max-width: 699px) {
   .logo-strip .logo-koi-studios,
@@ -1402,7 +1404,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .logo-strip a:hover img { opacity: 1; filter: none; }
 
-/* At tablet widths, hold the thirty-six marks in balanced rows. */
+/* At tablet widths, hold the thirty-seven marks in balanced rows. */
 @media (min-width: 700px) and (max-width: 1099px) {
   .logo-strip {
     display: grid;
@@ -1425,14 +1427,16 @@ img { max-width: 100%; height: auto; display: block; }
     object-fit: contain;
   }
 
+  .logo-strip > .logo-strip-mark:last-child {
+    grid-column: 3 / span 2;
+  }
 }
 
-/* At full desktop width, hold the thirty-six partner marks in balanced rows.
-   The flex strip remains the responsive fallback below this breakpoint. */
+/* At full desktop width, hold the thirty-seven partner marks in balanced rows. */
 @media (min-width: 1100px) {
   .logo-strip {
     display: grid;
-    grid-template-columns: repeat(9, minmax(0, 1fr));
+    grid-template-columns: repeat(8, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
     column-gap: clamp(1.5rem, 3vw, 3rem);
@@ -1453,6 +1457,48 @@ img { max-width: 100%; height: auto; display: block; }
 
   .logo-strip .logo-n8n {
     width: min(100%, 5.5rem);
+  }
+
+  .logo-strip > :nth-last-child(5) {
+    grid-column-start: 2;
+  }
+
+  .logo-strip > :nth-last-child(-n + 5) {
+    transform: translateX(calc(50% + clamp(0.75rem, 1.5vw, 1.5rem)));
+  }
+}
+
+/* Footer partner marks need a stable two-column rhythm on narrow screens. */
+@media (max-width: 699px) {
+  .logo-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    justify-items: stretch;
+    column-gap: clamp(1rem, 5vw, 1.75rem);
+    row-gap: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .logo-strip > a,
+  .logo-strip > .logo-strip-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    min-height: 4rem;
+  }
+
+  .logo-strip > :is(a, .logo-strip-mark) > img {
+    width: auto;
+    height: clamp(2rem, 8vw, 2.5rem);
+    max-width: 100%;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .logo-strip > .logo-strip-mark:last-child {
+    grid-column: 1 / -1;
   }
 }
 
