@@ -1,4 +1,5 @@
 /* Isolated static port of Tandem-Future's home route. */
+body:has(#tandem-page){margin:0;background:#24231d}
 #tandem-page{--bg:#24231d;--fg:#f0ede2;--muted:#aaa69b;--signal:#d3f24c;--rule:rgba(240,237,226,.16);--tandem-kicker-font:"Pixelify Sans",monospace;background:var(--bg);color:var(--fg);font-family:"DM Sans",system-ui,sans-serif;font-size:16px;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased}
 #tandem-page *,#tandem-page *::before,#tandem-page *::after{box-sizing:border-box}
 #tandem-page a{color:inherit;text-decoration:none}
@@ -6,8 +7,8 @@
 #tandem-page h1,#tandem-page h2,#tandem-page h3,#tandem-page p{margin:0}
 #tandem-page .tandem-shell{width:100%;max-width:1280px;margin-inline:auto;padding-inline:24px}
 #tandem-page .tandem-display,#tandem-page h1,#tandem-page h2,#tandem-page h3,#tandem-page .tandem-wordmark,#tandem-page .tandem-closing-lockup>p:first-child{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:.94;letter-spacing:-.02em}
-#tandem-page .tandem-label,#tandem-page .tandem-section-label,#tandem-page .tandem-promo,#tandem-page .tandem-ticker>div,#tandem-page .tandem-agenda-head,#tandem-page .tandem-experience b{font-family:var(--tandem-kicker-font);font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
-#tandem-page .tandem-nav-links,#tandem-page .tandem-ticket,#tandem-page .tandem-agenda b,#tandem-page .tandem-tracks>article>b,#tandem-page .tandem-number-list b{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-label,#tandem-page .tandem-section-label,#tandem-page .tandem-promo,#tandem-page .tandem-ticker>div,#tandem-page .tandem-experience b{font-family:var(--tandem-kicker-font);font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
+#tandem-page .tandem-nav-links,#tandem-page .tandem-ticket,#tandem-page .tandem-tracks>article>b,#tandem-page .tandem-number-list b{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
 #tandem-page .tandem-signal,#tandem-page i,#tandem-page .tandem-number-list b,#tandem-page .tandem-tracks>article>b{color:var(--signal)}
 #tandem-page .tandem-muted{color:var(--muted)}
 #tandem-page .tandem-skip{position:absolute;z-index:200;top:-50px;left:20px;padding:10px;background:var(--signal);color:var(--bg)!important}
@@ -78,26 +79,17 @@
 #tandem-page .tandem-experience p{margin-top:16px;color:rgba(240,237,226,.8);line-height:1.625}
 #tandem-page .tandem-experience i{display:block;margin-top:12px;font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--muted)}
 #tandem-page .tandem-short-bleed{min-height:46vh}
-#tandem-page .tandem-stage-grid{display:grid;gap:40px}
-#tandem-page .tandem-stage-grid article{padding-top:24px;border-top:1px solid var(--rule)}
-#tandem-page .tandem-stage-grid h3{font-size:36px}
-#tandem-page .tandem-stage-grid p{margin-top:16px;font-family:"Instrument Serif",Georgia,serif;font-size:24px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--muted)}
-#tandem-page .tandem-speakers{display:grid;gap:40px;margin-top:64px}
-#tandem-page .tandem-speakers h3{margin-top:16px;font-size:30px}
-#tandem-page .tandem-speakers>div>p:last-child{margin-top:16px;font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-style:italic;font-weight:400;line-height:.94;letter-spacing:-.02em;color:var(--signal)}
-#tandem-page .tandem-speakers ul{display:grid;margin:0;padding:0;list-style:none}
-#tandem-page .tandem-speakers li{padding-block:12px;border-top:1px solid var(--rule);font-family:"Instrument Serif",Georgia,serif;font-size:18px;font-weight:400;line-height:1.2;letter-spacing:-.02em}
-#tandem-page .tandem-speakers b{padding-inline:8px;color:var(--signal)}
-#tandem-page .tandem-agenda-head,#tandem-page .tandem-agenda>div{display:grid;gap:32px}
-#tandem-page #agenda .tandem-agenda-time-hidden{display:none}/* Agenda times are intentionally hidden pending schedule confirmation; source values are retained. */
-#tandem-page .tandem-agenda-head{padding-bottom:12px;border-bottom:1px solid var(--rule);color:var(--muted)}
-#tandem-page .tandem-agenda>div{padding-block:16px;border-bottom:1px solid var(--rule)}
-#tandem-page .tandem-agenda b{color:var(--signal)}
-#tandem-page .tandem-agenda p{font-family:"Instrument Serif",Georgia,serif;font-size:20px;font-weight:400;line-height:.94;letter-spacing:-.02em}
-#tandem-page .tandem-agenda small{display:block;margin-top:4px;color:var(--muted);font-size:14px;line-height:1.5}
-#tandem-page .tandem-agenda-cta{display:inline-block;margin-top:32px;padding:16px 32px;background:var(--signal);color:var(--bg)!important;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.25;letter-spacing:.22em;text-transform:uppercase}
-#tandem-page .tandem-agenda-cta:hover{background:var(--fg)}
-#tandem-page .tandem-agenda-cta:focus-visible{outline:1px solid var(--signal);outline-offset:5px}
+#tandem-page .tandem-agenda{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+#tandem-page .tandem-agenda-row{display:grid;gap:16px;padding-block:28px;border-bottom:1px solid var(--rule)}
+#tandem-page .tandem-agenda-row time,#tandem-page .tandem-agenda-type,#tandem-page .tandem-agenda-role,#tandem-page .tandem-moderator{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:400;line-height:1.45;letter-spacing:.16em;text-transform:uppercase}
+#tandem-page .tandem-agenda-row time{color:var(--signal)}
+#tandem-page .tandem-agenda-details{min-width:0}
+#tandem-page .tandem-agenda-type{margin-bottom:10px;color:var(--muted)}
+#tandem-page .tandem-agenda-title,#tandem-page .tandem-agenda-people{font-family:"Instrument Serif",Georgia,serif;font-size:26px;font-weight:400;line-height:1.05;letter-spacing:-.02em}
+#tandem-page .tandem-agenda-people{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+#tandem-page .tandem-agenda-people li{min-width:0}
+#tandem-page .tandem-agenda-role{color:var(--muted);letter-spacing:.08em;text-transform:none}
+#tandem-page .tandem-moderator{color:var(--signal);white-space:nowrap}
 #tandem-page .tandem-ticket-cta{position:relative;overflow:hidden;border-top:1px solid var(--rule)}
 #tandem-page .tandem-ticket-cta>img{opacity:.3;object-position:center 40%}
 #tandem-page .tandem-ticket-cta>div:not(.tandem-shell){position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),rgba(36,35,29,.9),rgba(36,35,29,.7))}
@@ -153,3 +145,8 @@
 @media (min-width:768px){#tandem-page .tandem-bridge{display:flex;gap:20px}}
 @media (min-width:768px){#tandem-page .tandem-newsletter-form>div{flex-direction:row}}
 @media (max-width:767px){#tandem-page .tandem-newsletter-form button{width:100%}}
+
+/* Tandem agenda */
+@media (min-width:768px){#tandem-page .tandem-agenda-row{grid-template-columns:minmax(160px,23%) minmax(0,1fr);gap:clamp(32px,5vw,72px);padding-block:36px}#tandem-page .tandem-agenda-details{padding-left:clamp(32px,5vw,72px);border-left:1px solid var(--rule)}#tandem-page .tandem-agenda-title,#tandem-page .tandem-agenda-people{font-size:32px}}
+@media (max-width:1023px){#tandem-page .tandem-agenda .tandem-agenda-type::before,#tandem-page .tandem-agenda .tandem-agenda-title::before{display:none;content:none}}
+@media (max-width:767px){#tandem-page .tandem-agenda-row{padding-block:24px}#tandem-page .tandem-agenda-details,#tandem-page .tandem-agenda-people li{min-width:0;overflow-wrap:anywhere}#tandem-page .tandem-moderator{white-space:normal}}
