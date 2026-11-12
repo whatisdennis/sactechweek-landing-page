@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Members — Sacramento Tech Week 2026</title>
+  <title>Members — Sacramento Tech Week</title>
   <meta name="description" content="Private consortium area.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0B0B14">
@@ -75,8 +75,8 @@
         <img src="assets/stw-mark-white.png" alt="stw." width="1550" height="736">
       </div>
       <div class="footer-meta">
-        <span>©2026 Sac Tech Week</span>
-        <span>October 19 – 24 / Sacramento CA</span>
+        <span>© Sac Tech Week</span>
+        <span>Sacramento CA</span>
         <span class="status">System ready / Signal stable</span>
       </div>
     </div>
@@ -86,15 +86,24 @@
   <nav class="bottom-nav" aria-label="Primary">
     <div class="bottom-nav-inner">
       <a class="brand-mark" href="index.html">STW_</a>
-      <div class="nav-links">
-        <a href="index.html#program">Program</a>
-        <a href="consortium.html">Consortium</a>
+      <button class="nav-toggle" type="button" aria-controls="stw-menu" aria-expanded="false" aria-label="Open navigation menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <div class="stw-nav-panel" id="stw-menu">
+        <div class="nav-links">
+          <a href="https://app.sactechweek.org/" target="_blank" rel="noopener noreferrer" aria-label="2026 event archive (opens in a new tab)">2026 event archive</a>
+          <a href="consortium.html">Consortium</a>
+          <a href="tandem.html">Tandem archive</a>
+        </div>
+        <a class="connect-btn" href="index.html#updates">Get updates</a>
       </div>
-      <a class="connect-btn" href="participate.html">Apply to Participate</a>
     </div>
   </nav>
 
   <script src="js/members-data.js"></script>
   <script type="module" src="js/members.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -307,3 +307,139 @@ document.querySelectorAll("[data-newsletter-form]").forEach((newsletterForm) => 
     }
   });
 });
+
+// --- 2026 recap videos -------------------------------------------------
+// The gallery remains ordinary links without JavaScript. This enhancement
+// adds lightweight hover previews and a single native dialog for the full
+// clips, keeping both kinds of video unloaded until a visitor interacts.
+(() => {
+  const dialog = document.querySelector("#recap-video-dialog");
+  const player = dialog?.querySelector(".video-dialog-player");
+  const title = dialog?.querySelector(".video-dialog-title");
+  const closeButton = dialog?.querySelector(".video-dialog-close");
+  const triggers = [...document.querySelectorAll("[data-video-trigger]")];
+
+  if (!dialog || !player || !title || !closeButton || !triggers.length || typeof dialog.showModal !== "function") return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const previews = new Map();
+  const visibleTriggers = new Set();
+  let opener = null;
+
+  const canPreview = () => finePointer.matches && !reducedMotion.matches && !document.hidden;
+
+  function stopPreview(trigger, { unload = false } = {}) {
+    const preview = previews.get(trigger);
+    if (!preview) return;
+
+    preview.pause();
+    trigger.classList.remove("is-previewing");
+
+    if (unload) {
+      preview.removeAttribute("src");
+      preview.load();
+      preview.remove();
+      previews.delete(trigger);
+    }
+  }
+
+  function startPreview(trigger) {
+    if (!canPreview() || !visibleTriggers.has(trigger)) return;
+
+    let preview = previews.get(trigger);
+    if (!preview) {
+      preview = document.createElement("video");
+      preview.className = "gallery-preview";
+      preview.muted = true;
+      preview.defaultMuted = true;
+      preview.loop = true;
+      preview.playsInline = true;
+      preview.preload = "metadata";
+      preview.setAttribute("aria-hidden", "true");
+      preview.src = trigger.dataset.previewVideo;
+      trigger.append(preview);
+      previews.set(trigger, preview);
+    }
+
+    preview.play().then(() => {
+      if (previews.get(trigger) === preview && canPreview() && trigger.matches(":hover")) {
+        trigger.classList.add("is-previewing");
+      }
+    }).catch(() => {});
+  }
+
+  function stopAllPreviews({ unload = false } = {}) {
+    triggers.forEach((trigger) => stopPreview(trigger, { unload }));
+  }
+
+  function unloadFullVideo() {
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+  }
+
+  function dismissDialog() {
+    unloadFullVideo();
+    const focusTarget = opener;
+    opener = null;
+    if (dialog.open) dialog.close();
+    focusTarget?.focus();
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse") startPreview(trigger);
+    });
+    trigger.addEventListener("pointerleave", () => stopPreview(trigger, { unload: true }));
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      stopPreview(trigger, { unload: true });
+      stopAllPreviews({ unload: true });
+      opener = trigger;
+      title.textContent = trigger.querySelector(".gallery-caption span")?.textContent || "Sac Tech Week 2026 video";
+      player.src = trigger.dataset.fullVideo;
+      player.load();
+      dialog.showModal();
+      closeButton.focus();
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleTriggers.add(entry.target);
+        else {
+          visibleTriggers.delete(entry.target);
+          stopPreview(entry.target, { unload: true });
+        }
+      });
+    }, { threshold: 0.05 });
+    triggers.forEach((trigger) => observer.observe(trigger));
+  } else {
+    triggers.forEach((trigger) => visibleTriggers.add(trigger));
+  }
+
+  closeButton.addEventListener("click", dismissDialog);
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dismissDialog();
+  });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    dismissDialog();
+  });
+  dialog.addEventListener("close", () => {
+    unloadFullVideo();
+    opener?.focus();
+    opener = null;
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAllPreviews({ unload: true });
+  });
+  [reducedMotion, finePointer].forEach((query) => {
+    query.addEventListener("change", () => {
+      if (!canPreview()) stopAllPreviews({ unload: true });
+    });
+  });
+})();
