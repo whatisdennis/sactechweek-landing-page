@@ -1780,7 +1780,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 2.5rem;
   align-items: end;
 }
@@ -1834,6 +1834,45 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-mark { justify-self: start; }
 
 .footer-mark img { width: min(34vw, 13rem); }
+
+.footer-socials {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-socials a {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: color var(--fast) var(--ease), border-color var(--fast) var(--ease), background-color var(--fast) var(--ease);
+}
+
+.footer-socials a:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.footer-socials a:focus-visible {
+  outline: 3px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+.footer-socials svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
 
 .footer-meta {
   justify-self: end;
@@ -1938,6 +1977,8 @@ img { max-width: 100%; height: auto; display: block; }
     justify-self: start;
     text-align: left;
   }
+
+  .footer-socials { justify-self: center; }
 
   .bottom-nav { padding: 0.85rem 1rem 1rem; }
 
@@ -2903,6 +2944,21 @@ img { max-width: 100%; height: auto; display: block; }
   .gallery-item--audience { grid-column: 1 / -1; min-height: 23rem; }
   .gallery-item--vr { grid-column: 1 / -1; min-height: 22rem; }
   .gallery-video { min-height: 25rem; }
+  .gallery-item--humanbulb {
+    grid-column: 1 / -1;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+  .gallery-item--humanbulb > img,
+  .gallery-item--humanbulb .gallery-preview {
+    object-fit: cover;
+    object-position: center 10%;
+  }
+  .footer-grid { gap: 1.5rem; }
+  .footer-mark,
+  .footer-socials,
+  .footer-meta { justify-self: center; }
+  .footer-meta { text-align: center; }
   .gallery-caption,
   .gallery-item figcaption { font-size: 0.6875rem; }
   .updates-fields { grid-template-columns: 1fr; }
